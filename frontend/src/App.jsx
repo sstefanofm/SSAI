@@ -13,7 +13,7 @@ function App() {
       <button onClick={async () => setToken((await getToken()).access_token)}>get token</button>
       <p>{token}</p>
 
-      <Artists token={token} />
+      {token && <Artists token={token} />}
     </>
   )
 }
