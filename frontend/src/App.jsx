@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 
+import Artists from './components/Artists'
+
 const getToken = async () => await (await fetch('http://localhost:8080')).json()
 
 function App() {
@@ -10,6 +12,8 @@ function App() {
     <>
       <button onClick={async () => setToken((await getToken()).access_token)}>get token</button>
       <p>{token}</p>
+
+      <Artists token={token} />
     </>
   )
 }
