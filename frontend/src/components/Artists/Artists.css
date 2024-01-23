@@ -12,22 +12,20 @@
 .Artist {
   cursor: pointer;
   margin: 1em;
+  border-radius: 5px;
   height: calc(var(--artistImageSize) + var(--artistNameHeight));
   width: var(--artistImageSize);
   overflow: hidden;
-  transition: 120ms;
   background-color: var(--fgColor);
 }
 
 .Artist:hover {
-  scale: 1.03;
-  box-shadow: 0px 0px 7px var(--fgColor);
+  box-shadow: 0 0 6px var(--fgColor);
 }
 
 .Artist__Image {
   height: var(--artistImageSize);
   width: 100%;
-  border-bottom: 4px solid var(--bgColor);
   object-fit: cover;
 }
 

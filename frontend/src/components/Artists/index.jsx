@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import './Artists.css'
-import ArtistService from '../services/ArtistService'
+import ArtistService from '../../services/ArtistService'
 
 const Artists = ({ token }) => {
   const [artists, setArtists] = useState([])

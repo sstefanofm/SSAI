@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
 
+import './App.css'
 import Artists from './components/Artists'
 
 const getToken = async () => await (await fetch('http://localhost:8080')).json()
