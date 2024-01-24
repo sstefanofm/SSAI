@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 import './Artists.css'
 import ArtistService from '../../services/ArtistService'
+import { TokenContext } from '../../context/TokenProvider'
 
-const Artists = ({ token }) => {
+const Artists = () => {
+  const token = useContext(TokenContext)
+
   const [artists, setArtists] = useState([])
 
   useEffect(() => {
