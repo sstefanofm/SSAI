@@ -25,6 +25,13 @@ const ArtistService = {
       })
     ).json()
   },
+  getAlbums: async (token, id) => {
+    return await (
+      await fetch(`${url}/${id}/albums?market=AR&include_groups=album&limit=50`, {
+        headers: { Authorization: 'Bearer ' + token },
+      })
+    ).json()
+  },
 }
 
 export default ArtistService

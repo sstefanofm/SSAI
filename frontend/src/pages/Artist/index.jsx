@@ -4,10 +4,12 @@ import { useParams } from 'react-router-dom'
 import ArtistService from '../../services/ArtistService'
 import { TokenContext } from '../../context/TokenProvider'
 import Song from '../../components/Song'
+import Album from '../../components/Album'
 
 const Artist = () => {
   const [artist, setArtist] = useState(null)
   const [topTracks, setTopTracks] = useState([])
+  const [albums, setAlbums] = useState([])
 
   const token = useContext(TokenContext)
   const { id } = useParams()
@@ -21,8 +23,13 @@ const Artist = () => {
       setTopTracks((await ArtistService.getTopTracks(token, id)).tracks)
     }
 
+    const getAlbums = async () => {
+      setAlbums((await ArtistService.getAlbums(token, id)).items)
+    }
+
     fetchArtist()
     getTopTracks()
+    getAlbums()
   }, [])
 
   return (
@@ -32,9 +39,16 @@ const Artist = () => {
         <p>{artist.followers.total} followers</p>
         <img src={artist.images[0].url} alt={`${artist.name} profile picture`} />
         <p>{artist.popularity} // popularity</p>
+        <h2>Songs</h2>
         <ul>
           {topTracks.map(tt => (
             <Song key={`${tt.id}${tt.name}`} song={tt} />
+          ))}
+        </ul>
+        <h2>Albums</h2>
+        <ul>
+          {albums.map(a => (
+            <Album key={`${a.id}${a.name}`} album={a} />
           ))}
         </ul>
       </div>
