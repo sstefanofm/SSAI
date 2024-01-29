@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Artists.css'
 import ArtistService from '../../services/ArtistService'
@@ -25,17 +26,17 @@ const Artists = () => {
       <div className='Artists'>
         {artists.map(a => {
           return (
-            <div
+            <Link
               key={a.id}
+              to={a.id}
               className='Artist'
-              onClick={() => console.log(a)}
             >
               <img
                 className='Artist__Image'
                 src={a.images[1].url}
               />
               <h3 className='Artist__Name'>{a.name}</h3>
-            </div>
+            </Link>
           )
         })}
       </div>

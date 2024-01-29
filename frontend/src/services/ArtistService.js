@@ -13,6 +13,25 @@ const ArtistService = {
       )
     ).json()
   },
+  getOne: async (token, id) => {
+    return await (
+      await fetch(`${url}/${id}`, { headers: { Authorization: 'Bearer ' + token } })
+    ).json()
+  },
+  getTopTracks: async (token, id) => {
+    return await (
+      await fetch(`${url}/${id}/top-tracks?market=AR`, {
+        headers: { Authorization: 'Bearer ' + token },
+      })
+    ).json()
+  },
+  getAlbums: async (token, id) => {
+    return await (
+      await fetch(`${url}/${id}/albums?market=AR&include_groups=album&limit=50`, {
+        headers: { Authorization: 'Bearer ' + token },
+      })
+    ).json()
+  },
 }
 
 export default ArtistService
