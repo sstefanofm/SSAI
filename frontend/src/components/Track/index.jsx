@@ -1,6 +1,6 @@
 const Track = ({ track, fromAlbum = false, order = -1 }) => {
   return (
-    <li>
+    <div>
       {fromAlbum && <div>{order}</div>}
       {!fromAlbum && (
         <img src={track.album.images[1].url} alt={`${track.album.name} album cover`} />
@@ -9,7 +9,7 @@ const Track = ({ track, fromAlbum = false, order = -1 }) => {
       <h4>{track.artists[0].name}</h4>
       {track.explicit && <div>explicit</div>}
       <div>{track.duration_ms}</div>
-    </li>
+    </div>
   )
 }
 

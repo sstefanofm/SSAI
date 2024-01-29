@@ -40,7 +40,7 @@ const Artist = () => {
         <img src={artist.images[0].url} alt={`${artist.name} profile picture`} />
         <p>{artist.popularity} // popularity</p>
         <h3>Top songs</h3>
-        <TrackList tracks={topTracks} />
+        <TrackList tracks={topTracks} fromAlbum={false} />
         <h3>Albums</h3>
         {albums.map(a => (
           <AlbumLink key={`${a.id}${a.name}`} album={a} />
