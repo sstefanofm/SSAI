@@ -18,6 +18,13 @@ const ArtistService = {
       await fetch(`${url}/${id}`, { headers: { Authorization: 'Bearer ' + token } })
     ).json()
   },
+  getTopTracks: async (token, id) => {
+    return await (
+      await fetch(`${url}/${id}/top-tracks?market=AR`, {
+        headers: { Authorization: 'Bearer ' + token },
+      })
+    ).json()
+  },
 }
 
 export default ArtistService

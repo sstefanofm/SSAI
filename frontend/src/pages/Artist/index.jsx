@@ -6,6 +6,7 @@ import { TokenContext } from '../../context/TokenProvider'
 
 const Artist = () => {
   const [artist, setArtist] = useState(null)
+  const [topTracks, setTopTracks] = useState([])
 
   const token = useContext(TokenContext)
   const { id } = useParams()
@@ -15,7 +16,12 @@ const Artist = () => {
       setArtist(await ArtistService.getOne(token, id))
     }
 
+    const getTopTracks = async () => {
+      setTopTracks((await ArtistService.getTopTracks(token, id)).tracks)
+    }
+
     fetchArtist()
+    getTopTracks()
   }, [])
 
   return (
@@ -25,6 +31,12 @@ const Artist = () => {
         <p>{artist.followers.total} followers</p>
         <img src={artist.images[0].url} alt={`${artist.name} profile picture`} />
         <p>{artist.popularity} // popularity</p>
+        <ul>
+          {topTracks.map(tt => {
+            console.log(tt)
+            return <li key={tt.id}>{tt.name}</li>
+          })}
+        </ul>
       </div>
     )
   )
