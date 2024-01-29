@@ -13,6 +13,11 @@ const ArtistService = {
       )
     ).json()
   },
+  getOne: async (token, id) => {
+    return await (
+      await fetch(`${url}/${id}`, { headers: { Authorization: 'Bearer ' + token } })
+    ).json()
+  },
 }
 
 export default ArtistService
