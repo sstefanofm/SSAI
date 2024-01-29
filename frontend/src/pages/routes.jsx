@@ -1,6 +1,6 @@
-import Artists from './components/Artists'
-import NotFound from './components/NotFound'
-import Artist from './pages/Artist'
+import Artists from './Artists'
+import NotFound from './NotFound'
+import Artist from './Artist'
 
 export const routes = [
   {

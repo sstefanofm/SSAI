@@ -2,7 +2,7 @@ import { Link, useRoutes } from 'react-router-dom'
 
 import './App.css'
 import TokenProvider from './context/TokenProvider'
-import { routes } from './routes'
+import { routes } from './pages/routes'
 
 function App() {
   return (
