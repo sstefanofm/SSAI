@@ -35,13 +35,13 @@ const Artist = () => {
   return (
     artist && (
       <div>
-        <h1>{artist.name}</h1>
+        <h2>{artist.name}</h2>
         <p>{artist.followers.total} followers</p>
         <img src={artist.images[0].url} alt={`${artist.name} profile picture`} />
         <p>{artist.popularity} // popularity</p>
-        <h2>Top songs</h2>
+        <h3>Top songs</h3>
         <TrackList tracks={topTracks} />
-        <h2>Albums</h2>
+        <h3>Albums</h3>
         {albums.map(a => (
           <AlbumLink key={`${a.id}${a.name}`} album={a} />
         ))}

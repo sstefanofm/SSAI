@@ -22,19 +22,12 @@ const Artists = () => {
 
   return (
     <>
-      <h1>Artists</h1>
+      <h2>Artists</h2>
       <div className='Artists'>
         {artists.map(a => {
           return (
-            <Link
-              key={a.id}
-              to={a.id}
-              className='Artist'
-            >
-              <img
-                className='Artist__Image'
-                src={a.images[1].url}
-              />
+            <Link key={a.id} to={a.id} className='Artist'>
+              <img className='Artist__Image' src={a.images[1].url} />
               <h3 className='Artist__Name'>{a.name}</h3>
             </Link>
           )
