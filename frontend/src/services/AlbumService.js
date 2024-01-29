@@ -1,11 +1,12 @@
-const url = 'https://api.spotify.com/v1/albums'
+import { fetchJson } from './fetch'
+
+const endpoint = 'albums'
 
 const AlbumService = {
-  getOne: async (token, id) => {
-    return await (
-      await fetch(`${url}/${id}`, { headers: { Authorization: 'Bearer ' + token } })
-    ).json()
-  },
+  getOne: async (token, id) => fetchJson(
+    `${endpoint}/${id}`,
+    token,
+  ),
 }
 
 export default AlbumService
