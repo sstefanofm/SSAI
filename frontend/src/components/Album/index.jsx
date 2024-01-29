@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom'
+import TrackList from '../TrackList'
 
-const Album = ({ album }) => {
+const AlbumRC = ({ album }) => {
   return (
-    <Link to={`/albums/${album.id}`}>
-      <img src={album.images[1].url} alt={`${album.name} album cover`} />
-      <h3>{album.name}</h3>
-      <h4>{new Date(album.release_date).getFullYear()}</h4>
-    </Link>
+    <div>
+      <h2>{album.name}</h2>
+      <img src={album.images[0].url} alt={`${album.name} album cover`} />
+      <TrackList tracks={album.tracks.items} fromAlbum={true} />
+    </div>
   )
 }
 
-export default Album
+export default AlbumRC
