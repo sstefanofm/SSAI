@@ -1,9 +1,9 @@
 import './404.css'
 
 const NotFound = () => (
-  <h1>
+  <h2>
     The requested URL &nbsp;<code>{location.pathname}</code>&nbsp; does not exist. :(
-  </h1>
+  </h2>
 )
 
 export default NotFound
