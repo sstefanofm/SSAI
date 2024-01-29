@@ -1,24 +1,33 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 import ArtistService from '../../services/ArtistService'
 import { TokenContext } from '../../context/TokenProvider'
 
 const Artist = () => {
-  const token = useContext(TokenContext)
+  const [artist, setArtist] = useState(null)
 
-  const id = '0TnOYISbd1XYRBk9myaseg'
+  const token = useContext(TokenContext)
+  const { id } = useParams()
 
   useEffect(() => {
     const fetchArtist = async () => {
-      const artist = await ArtistService.getOne(token, id)
-
-      console.log(artist)
+      setArtist(await ArtistService.getOne(token, id))
     }
 
     fetchArtist()
-  })
+  }, [])
 
-  return <>{id}</>
+  return (
+    artist && (
+      <div>
+        <h1>{artist.name}</h1>
+        <p>{artist.followers.total} followers</p>
+        <img src={artist.images[0].url} alt={`${artist.name} profile picture`} />
+        <p>{artist.popularity} // popularity</p>
+      </div>
+    )
+  )
 }
 
 export default Artist

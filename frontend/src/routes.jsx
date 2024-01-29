@@ -8,7 +8,7 @@ export const routes = [
     element: <Artists />,
   },
   {
-    path: '/artist',
+    path: '/artists/:id',
     element: <Artist />,
   },
   {
