@@ -1,9 +1,11 @@
-import AlbumLink from '../AlbumLink'
+import Link from '../Link'
 
 const AlbumList = ({ albums = [] }) => (
   <div>
     {albums.map(a => (
-      <AlbumLink key={`${a.id}${a.name}`} album={a} />
+      <Link key={a.id} element={a} type='album'>
+        <h4>{new Date(a.release_date).getFullYear()}</h4>
+      </Link>
     ))}
   </div>
 )

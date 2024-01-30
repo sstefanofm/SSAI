@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import ArtistService from '../../services/ArtistService'
 import { TokenContext } from '../../context/TokenProvider'
-import AlbumLink from '../../components/AlbumLink'
 import TrackList from '../../components/TrackList'
+import Link from '../../components/Link'
 
 const Artist = () => {
   const [artist, setArtist] = useState(null)
@@ -43,7 +43,9 @@ const Artist = () => {
         <TrackList tracks={topTracks} fromAlbum={false} />
         <h3>Albums</h3>
         {albums.map(a => (
-          <AlbumLink key={`${a.id}${a.name}`} album={a} />
+          <Link key={a.id} element={a} type='album'>
+            <h4>{new Date(a.release_date).getFullYear()}</h4>
+          </Link>
         ))}
       </div>
     )
