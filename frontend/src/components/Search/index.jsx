@@ -19,6 +19,9 @@ const Search = () => {
         placeholder='What do you want to search for?'
         name='search'
         onChange={e => setSearchString(e.target.value)}
+        onKeyDown={e => {
+          if (e.key === 'Enter') performSearch()
+        }}
       />
       <select name='searchType' onChange={e => setSearchType(e.target.value)}>
         <option value='album'>Albums</option>
