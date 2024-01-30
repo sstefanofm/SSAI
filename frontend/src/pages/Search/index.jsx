@@ -1,13 +1,15 @@
 import { useLocation } from 'react-router-dom'
 
+import AlbumList from '../../components/AlbumList'
+
 const renderSearch = state => {
   for (let searchResults in state)
     switch (searchResults) {
       case 'albums':
         return (
-          <div>
-            <h3>Albums</h3> {console.log(state[searchResults])}
-          </div>
+          <>
+            <h3>Albums</h3> <AlbumList albums={state[searchResults].items} />
+          </>
         )
       case 'artists':
         return (
