@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
 
 import AlbumList from '../../components/AlbumList'
+import ArtistList from '../../components/ArtistList'
 
 const renderSearch = state => {
   for (let searchResults in state)
@@ -13,9 +14,9 @@ const renderSearch = state => {
         )
       case 'artists':
         return (
-          <div>
-            <h3>Artists</h3> {console.log(state[searchResults])}
-          </div>
+          <>
+            <h3>Artists</h3> <ArtistList artists={state[searchResults].items} />
+          </>
         )
       case 'tracks':
         return (
