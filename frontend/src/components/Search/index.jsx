@@ -2,14 +2,20 @@ import { useContext, useState } from 'react'
 
 import { TokenContext } from '../../context/TokenProvider'
 import SearchService from '../../services/SearchService'
+import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
   const token = useContext(TokenContext)
   const [searchString, setSearchString] = useState('')
   const [searchType, setSearchType] = useState('album')
+  const navigate = useNavigate()
 
   const performSearch = () => {
-    SearchService.run(token, searchString, searchType).then(console.log).catch(console.warn)
+    SearchService.run(token, searchString, searchType)
+      .then(result => {
+        navigate('/search', { state: result })
+      })
+      .catch(console.warn)
   }
 
   return (
