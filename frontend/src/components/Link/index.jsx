@@ -13,16 +13,19 @@ const renderIcon = (type = 'album') => {
   }
 }
 
-const Link = ({ element, type = '' /* , children */ }) => {
+const Link = ({ element, type = '', children }) => {
   return (
     <LinkRR to={`/${type}s/${element.id}`}>
       {element.images.length ? (
-        <img src={element.images[0].url} alt={`${element.name} album cover|profile picture`} />
+        <img
+          src={element.images[0].url}
+          alt={`${element.name} ${type === 'album' ? 'album cover' : 'profile picture'}`}
+        />
       ) : (
         renderIcon(type)
       )}
       <h4>{element.name}</h4>
-      {/* { children } */}
+      {children}
     </LinkRR>
   )
 }

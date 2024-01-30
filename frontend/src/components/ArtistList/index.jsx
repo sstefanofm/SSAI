@@ -1,9 +1,9 @@
-import ArtistLink from '../ArtistLink'
+import Link from '../Link'
 
 const ArtistList = ({ artists = [] }) => (
   <div>
     {artists.map(a => (
-      <ArtistLink key={`${a.id}${a.name}`} artist={a} />
+      <Link key={a.id} element={a} type='artist' />
     ))}
   </div>
 )
