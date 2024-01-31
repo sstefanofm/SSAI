@@ -27,7 +27,7 @@ const renderAdditionalElements = element => {
     case 'track':
       return (
         <>
-          <h4>{element.artists[0].name}</h4>
+          {element.album && <h4>{element.artists[0].name}</h4>}
           <h5>{element.duration_ms}</h5>
           {element.explicit && <div>explicit</div>}
         </>
