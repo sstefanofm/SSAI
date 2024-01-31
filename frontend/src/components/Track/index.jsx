@@ -1,7 +1,7 @@
-const Track = ({ track, fromAlbum = false, order = -1 }) => {
+const Track = ({ track, fromAlbum = false }) => {
   return (
     <div>
-      {fromAlbum && <div>{order}</div>}
+      {fromAlbum && <div>{track.track_number}</div>}
       {!fromAlbum && (
         <img src={track.album.images[1].url} alt={`${track.album.name} album cover`} />
       )}
