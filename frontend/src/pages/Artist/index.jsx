@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import ArtistService from '../../services/ArtistService'
 import { TokenContext } from '../../context/TokenProvider'
-import AlbumLink from '../../components/AlbumLink'
-import TrackList from '../../components/TrackList'
+import List from '../../components/List'
 
 const Artist = () => {
   const [artist, setArtist] = useState(null)
@@ -40,11 +39,9 @@ const Artist = () => {
         <img src={artist.images[0].url} alt={`${artist.name} profile picture`} />
         <p>{artist.popularity} // popularity</p>
         <h3>Top songs</h3>
-        <TrackList tracks={topTracks} fromAlbum={false} />
+        <List elements={topTracks} />
         <h3>Albums</h3>
-        {albums.map(a => (
-          <AlbumLink key={`${a.id}${a.name}`} album={a} />
-        ))}
+        <List elements={albums} />
       </div>
     )
   )
