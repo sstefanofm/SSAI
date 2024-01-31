@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import AlbumService from '../../services/AlbumService'
 import { TokenContext } from '../../context/TokenProvider'
-import TrackList from '../../components/TrackList'
+import List from '../../components/List'
 
 const Album = () => {
   const [album, setAlbum] = useState(null)
@@ -22,7 +22,7 @@ const Album = () => {
       <div>
         <h2>{album.name}</h2>
         <img src={album.images[0].url} alt={`${album.name} album cover`} />
-        <TrackList tracks={album.tracks.items} fromAlbum={true} />
+        <List elements={album.tracks.items} />
       </div>
     )
   )

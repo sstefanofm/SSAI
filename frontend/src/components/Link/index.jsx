@@ -2,13 +2,18 @@ import { Link as LinkRR } from 'react-router-dom'
 
 import { IconCover, IconPerson } from '../Icon'
 
-const renderCover = (element, type = 'album') => {
-  const hasImage = !!element.images.length
+const renderCover = element => {
+  /* is track from Album page (no need to show cover) */
+  if (!element.images) return <></>
 
-  if (!hasImage) {
-    if (type === 'artist') return <IconPerson size={300} />
+  const hasCover = !!element.images.length
+
+  if (!hasCover) {
+    if (element.type === 'artist') return <IconPerson size={300} />
     return <IconCover size={300} />
   }
+
+  if (element.type === 'track') element = element.album
 
   return <img src={element.images[0].url} />
 }
@@ -35,7 +40,7 @@ const renderAdditionalElements = element => {
 const Link = ({ element }) => {
   return (
     <LinkRR to={`/${element.type}s/${element.id}`}>
-      {renderCover(element.type === 'track' ? element.album : element, element.type)}
+      {renderCover(element)}
       <h4>{element.name}</h4>
       {renderAdditionalElements(element)}
     </LinkRR>
