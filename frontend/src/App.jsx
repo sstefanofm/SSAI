@@ -7,6 +7,7 @@ import { TrackContext } from './context/TrackContext'
 import { routes } from './pages/routes'
 import Search from './components/Search'
 import Track from './components/Track'
+import Navbar from './components/Navbar'
 
 function App() {
   const [track, setTrack] = useState({})
@@ -14,7 +15,7 @@ function App() {
   return (
     <TokenProvider>
       <TrackContext.Provider value={{ track, setTrack }}>
-        <Track />
+        <Navbar />
         <Search />
         <Link to='/artists'>
           <h3>GoToArtists</h3>
