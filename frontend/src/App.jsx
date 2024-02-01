@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useRoutes } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 
 import './App.css'
 import TokenProvider from './context/TokenProvider'
@@ -18,6 +18,7 @@ function App() {
         <Navbar />
         <Search />
         {useRoutes(routes)}
+        <Track />
       </TrackContext.Provider>
     </TokenProvider>
   )
