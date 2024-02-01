@@ -1,13 +1,18 @@
+import { Link } from 'react-router-dom'
+
+import './Navbar.css'
 import Track from '../Track'
 
 const Navbar = () => {
   return (
-    <div>
+    <div className='Navbar'>
       <h1>SSAI</h1>
       <Track />
       <nav>
         <button>Albums</button>
-        <button>Artists</button>
+        <Link to='/artists'>
+          <button>Artists</button>
+        </Link>
         <button>Tracks</button>
       </nav>
     </div>

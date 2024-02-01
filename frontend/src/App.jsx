@@ -17,9 +17,6 @@ function App() {
       <TrackContext.Provider value={{ track, setTrack }}>
         <Navbar />
         <Search />
-        <Link to='/artists'>
-          <h3>GoToArtists</h3>
-        </Link>
         {useRoutes(routes)}
       </TrackContext.Provider>
     </TokenProvider>
