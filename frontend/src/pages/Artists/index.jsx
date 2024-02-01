@@ -1,7 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
 
-import './Artists.css'
 import ArtistService from '../../services/ArtistService'
 import { TokenContext } from '../../context/TokenProvider'
 import List from '../../components/List'
