@@ -28,7 +28,10 @@ const Artists = () => {
           return (
             <Link key={a.id} to={a.id} className='Artist'>
               <img className='Artist__Image' src={a.images[1].url} />
-              <h3 className='Artist__Name'>{a.name}</h3>
+              <div className="Artist__Data">
+                <h3 className='Artist__Name'>{a.name}</h3>
+                <span>{a.followers.total}</span>
+              </div>
             </Link>
           )
         })}
