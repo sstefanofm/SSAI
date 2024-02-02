@@ -1,5 +1,11 @@
 .Artist__Data {
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    30deg,
+    rgba(2, 0, 36, 0.6) 0%,
+    rgba(10, 10, 10, 0.8) 45%,
+    rgba(18, 16, 29, 0.8) 89%
+  );
   box-shadow: 0 0 2em black;
   width: 99vw;
   position: relative;
