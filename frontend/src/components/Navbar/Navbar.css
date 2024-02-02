@@ -4,7 +4,21 @@
   justify-content: space-between;
 }
 
+.Navbar__BurgerButton {
+  padding: 1em;
+  margin: 0;
+}
+
+.Navbar__Links {
+  position: absolute;
+  border: 1px solid var(--fgColor);
+  border-radius: 8px;
+  background-color: var(--bgColor);
+}
+
 .Navbar__Links > * {
+  display: flex;
+  flex-direction: column;
   padding: 0.5em;
 }
 
