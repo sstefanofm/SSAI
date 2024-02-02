@@ -6,10 +6,12 @@
     rgba(10, 10, 10, 0.8) 45%,
     rgba(18, 16, 29, 0.8) 89%
   );
-  box-shadow: 0 0 2em black;
-  width: 99vw;
+  box-shadow: 0 0 2em #050505;
+  width: 100%;
   position: relative;
-  transform: translate(-20%);
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 5px;
   margin-top: 2em;
   padding-top: 0.7em;
 }
