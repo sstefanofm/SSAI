@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Link as LinkRR } from 'react-router-dom'
 
 import './Link.css'
-import { IconCover, IconPerson } from '../Icon'
+import { IconCover, IconPerson, IconPlay } from '../Icon'
 import { TrackContext } from '../../context/TrackContext'
 
 const renderCover = element => {
@@ -21,7 +21,7 @@ const renderCover = element => {
   return <img className='Link__Image' src={element.images[0].url} />
 }
 
-const renderAdditionalElements = (element, playTrack) => {
+const renderAdditionalElements = element => {
   switch (element.type) {
     case 'album':
       return (
@@ -35,17 +35,9 @@ const renderAdditionalElements = (element, playTrack) => {
     case 'track':
       return (
         <>
-          <button
-            onClick={ev => {
-              ev.preventDefault()
-              playTrack(element)
-            }}
-          >
-            Play track
-          </button>
-          {element.album && <h4>{element.artists[0].name}</h4>}
+          {element.album && <h5>{element.artists[0].name}</h5>}
           <h5>{element.duration_ms}</h5>
-          {element.explicit && <div>explicit</div>}
+          {element.explicit && <code>explicit</code>}
         </>
       )
     default:
@@ -58,7 +50,18 @@ const Link = ({ element }) => {
 
   return (
     <LinkRR className={`Link Link--${element.type}`} to={`/${element.type}s/${element.id}`}>
-      {!element.album && <div>{element.track_number}</div>}
+      {!element.album && <div className='Link__TrackNumber'>{element.track_number}</div>}
+      {element.type === 'track' && (
+        <button
+          className={`Link__PlayButton ${!element.album && 'Link__PlayButton--FromAlbum'}`}
+          onClick={ev => {
+            ev.preventDefault()
+            setTrack(element)
+          }}
+        >
+          <IconPlay />
+        </button>
+      )}
       {renderCover(element)}
       <div className='Link__Data'>
         <h4>{element.name}</h4>

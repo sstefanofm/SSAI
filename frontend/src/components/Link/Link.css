@@ -31,6 +31,18 @@
   );
 }
 
+.Link--track {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(30deg, #333 0%, #000 45%, #222 89%);
+  font-size: 0.9em;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.Link--track:hover {
+  scale: 1;
+}
+
 .Link__Image {
   width: 150px;
   border: 2px solid var(--fgColor);
@@ -49,6 +61,11 @@
   box-shadow: 3px 3px 5px black;
 }
 
+.Link--track .Link__Image {
+  width: 100px;
+  height: 100px;
+}
+
 .Link__Data {
   text-align: left;
   color: var(--fgColor);
@@ -57,4 +74,30 @@
 
 .Link__Data h4 {
   font-size: 1.2em;
+}
+
+.Link--track .Link__Data > * {
+  margin: 0.4em 0;
+}
+
+.Link__PlayButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0.7em;
+  margin-left: 2.3em;
+  border: 1px solid var(--fgColor);
+}
+
+.Link__TrackNumber {
+  margin-left: 1.2em;
+}
+
+.Link__PlayButton--FromAlbum {
+  margin: 1em;
+}
+
+code {
+  font-size: 1em !important;
 }
