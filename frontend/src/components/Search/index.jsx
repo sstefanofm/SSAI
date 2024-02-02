@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 
+import './Search.css'
 import { TokenContext } from '../../context/TokenProvider'
 import SearchService from '../../services/SearchService'
 import { useNavigate } from 'react-router-dom'
@@ -19,7 +20,7 @@ const Search = () => {
   }
 
   return (
-    <div>
+    <div className='Search'>
       <input
         type='text'
         placeholder='What do you want to search for?'

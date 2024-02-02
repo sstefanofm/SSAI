@@ -16,16 +16,16 @@ const Navbar = () => {
       </div>
       <div>
         <button className='Navbar__BurgerButton' onClick={() => setHidden(!hidden)}>
-          {hidden ? <IconList size={30} /> : <IconBurger size={30} />}
+          {hidden ? <IconList size={20} /> : <IconBurger size={20} />}
         </button>
         <nav hidden={hidden} className='Navbar__Links'>
-          <Link to='/albums'>
+          <Link className='A' to='/albums'>
             <button>Albums</button>
           </Link>
-          <Link to='/artists'>
+          <Link className='A' to='/artists'>
             <button>Artists</button>
           </Link>
-          <Link to='/tracks'>
+          <Link className='A' to='/tracks'>
             <button>Tracks</button>
           </Link>
         </nav>

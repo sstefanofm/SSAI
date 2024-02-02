@@ -1,0 +1,55 @@
+:root {
+  --searchBorderRadius: 30px;
+}
+
+.Search {
+  position: fixed;
+  top: 2.5em;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgba(50, 50, 50, 0.8);
+  z-index: 1;
+  width: 60vw;
+  max-width: 40em;
+  min-width: 15em;
+  display: flex;
+  justify-content: space-between;
+  border-radius: var(--searchBorderRadius);
+}
+
+.Search input {
+  border-top-left-radius: var(--searchBorderRadius);
+  border-bottom-left-radius: var(--searchBorderRadius);
+  background-color: inherit;
+  outline: none;
+  border: 1px solid #777;
+  width: 100%;
+  padding-left: 1em;
+  font-size: 1.2em;
+}
+
+.Search input:focus {
+  border-color: var(--buttonHoverBorderColor);
+}
+
+.Search select {
+  font-size: 1em;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  padding: 0 0.4em;
+  outline: none;
+  border: 0;
+  border-left: 1px solid var(--bgColor);
+  border-right: 1px solid var(--bgColor);
+  background-color: #1a1a1a;
+}
+
+.Search select:hover {
+  border: 1px solid var(--buttonHoverBorderColor);
+}
+
+.Search button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: var(--searchBorderRadius);
+  border-bottom-right-radius: var(--searchBorderRadius);
+}

@@ -14,8 +14,8 @@ const renderCover = element => {
   const hasCover = !!element.images.length
 
   if (!hasCover) {
-    if (element.type === 'artist') return <IconPerson size={300} />
-    return <IconCover size={300} />
+    if (element.type === 'artist') return <IconPerson size={180} />
+    return <IconCover size={180} />
   }
 
   return <img className='Link__Image' src={element.images[0].url} />

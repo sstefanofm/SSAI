@@ -12,8 +12,7 @@
   left: 50%;
   border-radius: 5px;
   transform: translate(-50%);
-  margin-top: 2em;
-  padding-top: 0.7em;
+  padding-top: 0.4em;
 }
 
 .Album__Image {
