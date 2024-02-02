@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom'
 
 import './Navbar.css'
+import viteLogo from '../../assets/vite.svg'
 
 const Navbar = () => {
   return (
     <div className='Navbar'>
-      <h1>SSAI</h1>
+      <div className='Logo'>
+        <img src={viteLogo} />
+        <h1>SSAI</h1>
+      </div>
       <nav className='Navbar__Links'>
         <Link to='/albums'>
           <button>Albums</button>

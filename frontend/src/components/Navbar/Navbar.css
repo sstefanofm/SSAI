@@ -7,3 +7,11 @@
 .Navbar__Links > * {
   padding: 0.5em;
 }
+
+.Logo {
+  display: flex;
+}
+
+.Logo > * {
+  padding-right: 1em;
+}
