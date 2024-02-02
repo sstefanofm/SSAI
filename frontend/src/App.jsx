@@ -19,6 +19,7 @@ function App() {
         <Search />
         {useRoutes(routes)}
         <Track />
+        <div className='HiddenFooter' />
       </TrackContext.Provider>
     </TokenProvider>
   )
