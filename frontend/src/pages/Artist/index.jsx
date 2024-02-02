@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+import './Artist.css'
 import ArtistService from '../../services/ArtistService'
 import { TokenContext } from '../../context/TokenProvider'
 import List from '../../components/List'
@@ -34,10 +35,17 @@ const Artist = () => {
   return (
     artist && (
       <div>
-        <h2>{artist.name}</h2>
-        <p>{artist.followers.total} followers</p>
-        <img src={artist.images[0].url} alt={`${artist.name} profile picture`} />
-        <p>{artist.popularity} // popularity</p>
+        <div className='Artist__Data'>
+          <h2 className='Artist__Name'>{artist.name}</h2>
+          <p>
+            <i>{artist.followers.total} followers</i>
+          </p>
+          <img
+            className='Artist__Image'
+            src={artist.images[1].url}
+            alt={`${artist.name} profile picture`}
+          />
+        </div>
         <h3>Top songs</h3>
         <List elements={topTracks} />
         <h3>Albums</h3>

@@ -1,0 +1,18 @@
+.Artist__Data {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 2em black;
+  width: 99vw;
+  position: relative;
+  transform: translate(-20%);
+  margin-top: 2em;
+  padding-top: 0.7em;
+}
+
+.Artist__Image {
+  border-radius: 50%;
+  box-shadow: 0 0 5px #999;
+  margin-bottom: 2em;
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+}
