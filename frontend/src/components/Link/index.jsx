@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import { Link as LinkRR } from 'react-router-dom'
 
-import { IconCover, IconPerson } from '../Icon'
+import './Link.css'
+import { IconCover, IconPerson, IconPlay } from '../Icon'
+import { TrackContext } from '../../context/TrackContext'
 
 const renderCover = element => {
   if (element.type === 'track') element = element.album
@@ -11,25 +14,30 @@ const renderCover = element => {
   const hasCover = !!element.images.length
 
   if (!hasCover) {
-    if (element.type === 'artist') return <IconPerson size={300} />
-    return <IconCover size={300} />
+    if (element.type === 'artist') return <IconPerson size={180} />
+    return <IconCover size={180} />
   }
 
-  return <img src={element.images[0].url} />
+  return <img className='Link__Image' src={element.images[0].url} />
 }
 
 const renderAdditionalElements = element => {
   switch (element.type) {
     case 'album':
-      return <h4>{new Date(element.release_date).getFullYear()}</h4>
+      return (
+        <>
+          <h5>{element.artists[0].name}</h5>
+          <h5>{new Date(element.release_date).getFullYear()}</h5>
+        </>
+      )
     case 'artist':
-      return <h4>{element.followers.total}</h4>
+      return <h5>{element.followers.total} followers</h5>
     case 'track':
       return (
         <>
-          {element.album && <h4>{element.artists[0].name}</h4>}
+          {element.album && <h5>{element.artists[0].name}</h5>}
           <h5>{element.duration_ms}</h5>
-          {element.explicit && <div>explicit</div>}
+          {element.explicit && <code>explicit</code>}
         </>
       )
     default:
@@ -38,12 +46,27 @@ const renderAdditionalElements = element => {
 }
 
 const Link = ({ element }) => {
+  const { setTrack } = useContext(TrackContext)
+
   return (
-    <LinkRR to={`/${element.type}s/${element.id}`}>
-      {!element.album && <div>{element.track_number}</div>}
+    <LinkRR className={`Link Link--${element.type}`} to={`/${element.type}s/${element.id}`}>
+      {!element.album && <div className='Link__TrackNumber'>{element.track_number}</div>}
+      {element.type === 'track' && (
+        <button
+          className={`Link__PlayButton ${!element.album && 'Link__PlayButton--FromAlbum'}`}
+          onClick={ev => {
+            ev.preventDefault()
+            setTrack(element)
+          }}
+        >
+          <IconPlay />
+        </button>
+      )}
       {renderCover(element)}
-      <h4>{element.name}</h4>
-      {renderAdditionalElements(element)}
+      <div className='Link__Data'>
+        <h4>{element.name}</h4>
+        {renderAdditionalElements(element, setTrack)}
+      </div>
     </LinkRR>
   )
 }

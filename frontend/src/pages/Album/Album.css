@@ -1,0 +1,24 @@
+.Album__Data {
+  background: rgb(56, 32, 62);
+  background: linear-gradient(
+    30deg,
+    rgba(56, 32, 62, 1) 0%,
+    rgba(58, 58, 58, 1) 45%,
+    rgba(56, 32, 62, 1) 89%
+  );
+  box-shadow: 0 0 2em black;
+  width: 100%;
+  position: relative;
+  left: 50%;
+  border-radius: 5px;
+  transform: translate(-50%);
+  padding-top: 0.4em;
+}
+
+.Album__Image {
+  box-shadow: 4px 4px 10px black;
+  margin-bottom: 2em;
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+}

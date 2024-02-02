@@ -1,0 +1,25 @@
+.Artist__Data {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    30deg,
+    rgba(2, 0, 36, 0.6) 0%,
+    rgba(10, 10, 10, 0.8) 45%,
+    rgba(18, 16, 29, 0.8) 89%
+  );
+  box-shadow: 0 0 2em #050505;
+  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 5px;
+  padding-top: 0.4em;
+}
+
+.Artist__Image {
+  border-radius: 50%;
+  box-shadow: 0 0 5px #999;
+  margin-bottom: 2em;
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+}

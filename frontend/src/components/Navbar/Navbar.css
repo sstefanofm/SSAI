@@ -1,0 +1,47 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Navbar__BurgerButton {
+  padding: 1em;
+  margin: 0;
+}
+
+.Navbar__Links {
+  position: absolute;
+  border: 1px solid var(--buttonHoverBorderColor);
+  margin-top: 0.4em;
+  margin-left: -2.8em;
+  border-radius: 8px;
+  background-color: var(--bgColor);
+  z-index: 2;
+}
+
+.Navbar__Links > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.Navbar__Links button {
+  border-radius: 0;
+}
+
+.Navbar__Links A:first-child button {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.Navbar__Links A:last-child button {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.Logo {
+  display: flex;
+}
+
+.Logo > * {
+  padding-right: 1em;
+}
