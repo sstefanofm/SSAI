@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { Link as LinkRR } from 'react-router-dom'
 
-import './Artist.css'
+import './Link.css'
 import { IconCover, IconPerson } from '../Icon'
 import { TrackContext } from '../../context/TrackContext'
 
-const renderCover = (element, name) => {
+const renderCover = element => {
   if (element.type === 'track') element = element.album
 
   /* is track from Album page (no need to show cover) */
@@ -18,15 +18,20 @@ const renderCover = (element, name) => {
     return <IconCover size={300} />
   }
 
-  return <img className={`${name}__Image`} src={element.images[0].url} />
+  return <img className='Link__Image' src={element.images[0].url} />
 }
 
 const renderAdditionalElements = (element, playTrack) => {
   switch (element.type) {
     case 'album':
-      return <h4>{new Date(element.release_date).getFullYear()}</h4>
+      return (
+        <>
+          <h5>{element.artists[0].name}</h5>
+          <h5>{new Date(element.release_date).getFullYear()}</h5>
+        </>
+      )
     case 'artist':
-      return <h4>{element.followers.total} followers</h4>
+      return <h5>{element.followers.total} followers</h5>
     case 'track':
       return (
         <>
@@ -51,14 +56,11 @@ const renderAdditionalElements = (element, playTrack) => {
 const Link = ({ element }) => {
   const { setTrack } = useContext(TrackContext)
 
-  const type = element.type
-  const capitalizedType = type.charAt(0).toUpperCase() + type.slice(1)
-
   return (
-    <LinkRR className={capitalizedType} to={`/${element.type}s/${element.id}`}>
+    <LinkRR className={`Link Link--${element.type}`} to={`/${element.type}s/${element.id}`}>
       {!element.album && <div>{element.track_number}</div>}
-      {renderCover(element, capitalizedType)}
-      <div className={`${capitalizedType}__Data`}>
+      {renderCover(element)}
+      <div className='Link__Data'>
         <h4>{element.name}</h4>
         {renderAdditionalElements(element, setTrack)}
       </div>

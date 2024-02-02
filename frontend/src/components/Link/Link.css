@@ -1,0 +1,60 @@
+.Link {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 1em;
+  margin-bottom: 1.5em;
+  width: 47%;
+}
+
+.Link:hover {
+  scale: 1.02;
+}
+
+.Link--artist {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    30deg,
+    rgba(2, 0, 36, 1) 0%,
+    var(--bgColor) 45%,
+    rgba(18, 16, 29, 1) 89%
+  );
+}
+
+.Link--album {
+  background: rgb(56, 32, 62);
+  background: linear-gradient(
+    30deg,
+    rgba(56, 32, 62, 1) 0%,
+    rgba(58, 58, 58, 1) 45%,
+    rgba(56, 32, 62, 1) 89%
+  );
+}
+
+.Link__Image {
+  width: 150px;
+  border: 2px solid var(--fgColor);
+  height: 150px;
+  object-fit: cover;
+  margin: 2em;
+}
+
+.Link--artist .Link__Image {
+  border-radius: 50%;
+}
+
+.Link--album .Link__Image {
+  border-radius: 0;
+  border: 0;
+  box-shadow: 3px 3px 5px black;
+}
+
+.Link__Data {
+  text-align: left;
+  color: var(--fgColor);
+  margin-right: 2em;
+}
+
+.Link__Data h4 {
+  font-size: 1.2em;
+}
