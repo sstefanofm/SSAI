@@ -4,6 +4,7 @@ import { Link as LinkRR } from 'react-router-dom'
 import './Link.css'
 import { IconCover, IconPerson, IconPlay } from '../Icon'
 import { TrackContext } from '../../context/TrackContext'
+import { numberParserLf } from '../../util/numberParser'
 
 const renderCover = element => {
   if (element.type === 'track') element = element.album
@@ -31,7 +32,7 @@ const renderAdditionalElements = element => {
         </>
       )
     case 'artist':
-      return <h5>{element.followers.total} followers</h5>
+      return <h5>{numberParserLf(element.followers.total)} followers</h5>
     case 'track':
       return (
         <>

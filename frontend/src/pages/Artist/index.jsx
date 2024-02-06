@@ -5,6 +5,7 @@ import './Artist.css'
 import ArtistService from '../../services/ArtistService'
 import { TokenContext } from '../../context/TokenProvider'
 import List from '../../components/List'
+import { numberParserLf } from '../../util/numberParser'
 
 const Artist = () => {
   const [artist, setArtist] = useState(null)
@@ -38,7 +39,7 @@ const Artist = () => {
         <div className='Artist__Data'>
           <h2 className='Artist__Name'>{artist.name}</h2>
           <p>
-            <i>{artist.followers.total} followers</i>
+            <i>{numberParserLf(artist.followers.total)} followers</i>
           </p>
           <img
             className='Artist__Image'
