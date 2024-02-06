@@ -16,7 +16,7 @@
   margin-left: -2.8em;
   border-radius: 8px;
   background-color: var(--bgColor);
-  z-index: 2;
+  z-index: 1;
 }
 
 .Navbar__Links > * {
@@ -44,4 +44,10 @@
 
 .Logo > * {
   padding-right: 1em;
+}
+
+@media only screen and (max-width: 1200px) {
+  .Navbar {
+    margin-top: 2.5em;
+  }
 }

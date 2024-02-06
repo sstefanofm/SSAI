@@ -15,8 +15,8 @@ function App() {
   return (
     <TokenProvider>
       <TrackContext.Provider value={{ track, setTrack }}>
-        <Navbar />
         <Search />
+        <Navbar />
         {useRoutes(routes)}
         <Track />
         <div className='HiddenFooter' />
