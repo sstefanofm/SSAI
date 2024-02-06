@@ -4,7 +4,7 @@ import { Link as LinkRR } from 'react-router-dom'
 import './Link.css'
 import { IconCover, IconPerson, IconPlay } from '../Icon'
 import { TrackContext } from '../../context/TrackContext'
-import { numberParserLf } from '../../util/numberParser'
+import { numberParserLf, numberToMinSec } from '../../util/numberParser'
 
 const renderCover = element => {
   if (element.type === 'track') element = element.album
@@ -37,7 +37,7 @@ const renderAdditionalElements = element => {
       return (
         <>
           {element.album && <h5>{element.artists[0].name}</h5>}
-          <h5>{element.duration_ms}</h5>
+          <h5>{numberToMinSec(element.duration_ms)}</h5>
           {element.explicit && <code>explicit</code>}
         </>
       )
