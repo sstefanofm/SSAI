@@ -1,10 +1,11 @@
 .Link {
   display: flex;
+  flex-direction: row;
   align-items: center;
   border-radius: 5px;
   margin: 1em;
   margin-bottom: 1.5em;
-  width: 47%;
+  width: 28vw;
 }
 
 .Link:hover {
@@ -35,8 +36,15 @@
   background: rgb(0, 0, 0);
   background: linear-gradient(30deg, #333 0%, #000 45%, #222 89%);
   font-size: 0.9em;
-  width: 100%;
+  width: 100% !important;
+  flex-direction: row !important;
+  justify-content: start !important;
   margin-bottom: 0;
+}
+
+.Link--track .Link__Data {
+  font-size: 1em;
+  text-align: left;
 }
 
 .Link--track:hover {
@@ -62,8 +70,9 @@
 }
 
 .Link--track .Link__Image {
-  width: 100px;
-  height: 100px;
+  margin-bottom: 2em;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .Link__Data {
@@ -88,6 +97,8 @@
   padding: 0.7em;
   margin-left: 2.3em;
   border: 1px solid var(--fgColor);
+  min-width: 45px;
+  min-height: 45px;
 }
 
 .Link__TrackNumber {
@@ -100,4 +111,57 @@
 
 code {
   font-size: 1em !important;
+}
+
+@media only screen and (max-width: 1300px) {
+  .Link {
+    width: 40vw;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .Link {
+    width: 80vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2vw;
+  }
+
+  .Link__Image {
+    margin-bottom: 0;
+    width: calc(40vw + 20px);
+    height: calc(40vw + 20px);
+  }
+
+  .Link__Data {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: calc(2vw + 10px);
+  }
+
+  .Link--track {
+    margin: 0;
+  }
+
+  .Link--track .Link__Image {
+    margin: 10px;
+    width: 18vw;
+    height: 18vw;
+  }
+
+  .Link--track .Link__Data {
+    font-size: 1em;
+    margin: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .Link__PlayButton {
+    margin-left: 10px;
+    width: calc(7vw - 10px);
+    height: calc(7vw - 10px);
+  }
 }
