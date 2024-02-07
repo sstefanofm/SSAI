@@ -5,12 +5,8 @@ import { formatUrlEncodedIds } from '../util/formatUrlEncodedIds'
 const endpoint = 'artists'
 
 const ArtistService = {
-  get: token =>
-    fetchJson(
-      /* hardcoded */
-      `${endpoint}?ids=${formatUrlEncodedIds(artistsIds)}`,
-      token,
-    ),
+  /* artistsIds: hardcoded data */
+  get: token => fetchJson(`${endpoint}?ids=${formatUrlEncodedIds(artistsIds)}`, token),
   getOne: (token, id) => fetchJson(`${endpoint}/${id}`, token),
   getTopTracks: (token, id) => fetchJson(`${endpoint}/${id}/top-tracks?market=AR`, token),
   getAlbums: (token, id) =>
