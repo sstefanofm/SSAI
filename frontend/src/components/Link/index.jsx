@@ -53,7 +53,7 @@ const Link = ({ element }) => {
     <LinkRR className={`Link Link--${element.type}`} to={`/${element.type}s/${element.id}`}>
       {!element.album && <div className='Link__TrackNumber'>{element.track_number}</div>}
       {element.type === 'track' && (
-        <button
+        <div
           className={`Link__PlayButton ${!element.album && 'Link__PlayButton--FromAlbum'}`}
           onClick={ev => {
             ev.preventDefault()
@@ -61,7 +61,7 @@ const Link = ({ element }) => {
           }}
         >
           <IconPlay />
-        </button>
+        </div>
       )}
       {renderCover(element)}
       <div className='Link__Data'>
