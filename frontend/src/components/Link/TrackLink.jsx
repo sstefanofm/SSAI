@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 import './Link.css'
 import { IconPause, IconPlay } from '../Icon'
@@ -19,18 +19,30 @@ const renderCover = track => {
 
 const TrackLink = ({ trackElement }) => {
   const { track, setTrack } = useContext(TrackContext)
+  const audioPlayer = document.querySelector('audio')
+  const [paused, setPaused] = useState(audioPlayer.paused)
 
   return (
     <div
       className='Link Link--track'
-      onClick={ev => {
-        ev.preventDefault()
-        setTrack(trackElement)
+      onClick={() => {
+        if (track.id !== trackElement.id) {
+          setTrack(trackElement)
+          return setPaused(false)
+        }
+
+        if (paused && track.id === trackElement.id) {
+          audioPlayer.play()
+          return setPaused(false)
+        }
+
+        audioPlayer.pause()
+        setPaused(true)
       }}
     >
       {!trackElement.album && <div className='Link__TrackNumber'>{trackElement.track_number}</div>}
       <div className={`Link__PlayButton ${!trackElement.album && 'Link__PlayButton--FromAlbum'}`}>
-        {track.id === trackElement.id ? <IconPause /> : <IconPlay />}
+        {track.id === trackElement.id && !paused ? <IconPause /> : <IconPlay />}
       </div>
       {renderCover(trackElement)}
       <div className='Link__Data'>
