@@ -62,6 +62,8 @@
 
 .Link--artist .Link__Image {
   border-radius: 50%;
+  border: 0;
+  box-shadow: 0 0 10px #000;
 }
 
 .Link--album .Link__Image {
