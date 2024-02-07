@@ -34,12 +34,13 @@
 
 .Link--track {
   background: rgb(0, 0, 0);
-  background: linear-gradient(30deg, #333 0%, #000 45%, #222 89%);
+  background: linear-gradient(30deg, #33333388 0%, #00000055 45%, #222222ee 89%);
   font-size: 0.9em;
   width: 100% !important;
   flex-direction: row !important;
   justify-content: start !important;
   margin-bottom: 0;
+  min-height: 100px;
 }
 
 .Link--track .Link__Data {
@@ -106,6 +107,10 @@ code {
   .Link {
     width: 40vw;
   }
+
+  .Link__PlayButton {
+    margin-left: 17px;
+  }
 }
 
 @media only screen and (max-width: 960px) {
@@ -131,25 +136,20 @@ code {
   }
 
   .Link--track {
-    margin: 0;
+    margin-top: 1em;
+    margin-bottom: 0;
   }
 
   .Link--track .Link__Image {
     margin: 14px;
-    width: 18vw;
-    height: 18vw;
+    width: 80px;
+    height: 80px;
   }
 
   .Link--track .Link__Data {
-    font-size: 0.75em;
+    font-size: 1em;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-  }
-
-  .Link__PlayButton {
-    margin-left: 17px;
-    width: calc(7vw - 2px);
-    height: calc(7vw - 2px);
   }
 }
