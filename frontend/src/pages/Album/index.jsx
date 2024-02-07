@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 
 import './Album.css'
 import AlbumService from '../../services/AlbumService'
@@ -22,6 +22,9 @@ const Album = () => {
     album && (
       <div>
         <div className='Album__Data'>
+          <NavLink to={`/artists/${album.artists[0].id}`}>
+            <h4>{album.artists[0].name}</h4>
+          </NavLink>
           <h2>{album.name}</h2>
           <img
             className='Album__Image'
