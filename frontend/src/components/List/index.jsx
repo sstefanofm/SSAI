@@ -6,7 +6,11 @@ const List = ({ elements = [] }) => {
   return (
     <div className='List'>
       {elements.map(e =>
-        e.type === 'track' ? <TrackLink key={e.id} track={e} /> : <Link key={e.id} element={e} />,
+        e.type === 'track' ? (
+          <TrackLink key={e.id} trackElement={e} />
+        ) : (
+          <Link key={e.id} element={e} />
+        ),
       )}
     </div>
   )

@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 
 import './Link.css'
-import { IconPlay } from '../Icon'
+import { IconPause, IconPlay } from '../Icon'
 import { numberToMinSec } from '../../util/numberParser'
 import { TrackContext } from '../../context/TrackContext'
 
@@ -17,27 +17,27 @@ const renderCover = track => {
   )
 }
 
-const TrackLink = ({ track }) => {
-  const { setTrack } = useContext(TrackContext)
+const TrackLink = ({ trackElement }) => {
+  const { track, setTrack } = useContext(TrackContext)
 
   return (
     <div
       className='Link Link--track'
       onClick={ev => {
         ev.preventDefault()
-        setTrack(track)
+        setTrack(trackElement)
       }}
     >
-      {!track.album && <div className='Link__TrackNumber'>{track.track_number}</div>}
-      <div className={`Link__PlayButton ${!track.album && 'Link__PlayButton--FromAlbum'}`}>
-        <IconPlay />
+      {!trackElement.album && <div className='Link__TrackNumber'>{trackElement.track_number}</div>}
+      <div className={`Link__PlayButton ${!trackElement.album && 'Link__PlayButton--FromAlbum'}`}>
+        {track.id === trackElement.id ? <IconPause /> : <IconPlay />}
       </div>
-      {renderCover(track)}
+      {renderCover(trackElement)}
       <div className='Link__Data'>
-        <h4>{track.name}</h4>
-        {track.album && <h5>{track.artists[0].name}</h5>}
-        <h5>{numberToMinSec(track.duration_ms)}</h5>
-        {track.explicit && <code>explicit</code>}
+        <h4>{trackElement.name}</h4>
+        {trackElement.album && <h5>{trackElement.artists[0].name}</h5>}
+        <h5>{numberToMinSec(trackElement.duration_ms)}</h5>
+        {trackElement.explicit && <code>explicit</code>}
       </div>
     </div>
   )
