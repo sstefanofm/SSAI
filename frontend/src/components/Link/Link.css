@@ -58,6 +58,8 @@
   height: 150px;
   object-fit: cover;
   margin: 2em;
+  min-width: 200px;
+  min-height: 200px;
 }
 
 .Link--artist .Link__Image {
@@ -74,6 +76,8 @@
 
 .Link--track .Link__Image {
   margin-bottom: 2em;
+  min-width: unset;
+  min-height: unset;
 }
 
 .Link__Data {
