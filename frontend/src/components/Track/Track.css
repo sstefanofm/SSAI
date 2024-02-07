@@ -10,3 +10,13 @@
   max-width: 40em;
   min-width: 15em;
 }
+
+@media only screen and (max-width: 1200px) {
+  .Track {
+    bottom: 0;
+  }
+
+  .Track__Player {
+    width: 80vw;
+  }
+}

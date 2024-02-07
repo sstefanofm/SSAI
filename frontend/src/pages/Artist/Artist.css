@@ -1,10 +1,10 @@
 .Artist__Data {
-  background: rgb(2, 0, 36);
+  background: rgba(2, 0, 36, 0);
   background: linear-gradient(
     30deg,
-    rgba(2, 0, 36, 0.6) 0%,
-    rgba(10, 10, 10, 0.8) 45%,
-    rgba(18, 16, 29, 0.8) 89%
+    rgba(10, 5, 76, 0.22) 0%,
+    rgba(10, 10, 10, 0.7) 45%,
+    rgba(18, 16, 39, 0.4) 89%
   );
   box-shadow: 0 0 2em #050505;
   width: 100%;
@@ -17,9 +17,26 @@
 
 .Artist__Image {
   border-radius: 50%;
-  box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 10px #000;
   margin-bottom: 2em;
   width: 320px;
   height: 320px;
+  min-width: 250px;
+  min-height: 250px;
   object-fit: cover;
+}
+
+h3 {
+  box-shadow: 0px 0px 20px -7px #434;
+  border-radius: 5px;
+  padding: 0.7em;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+
+@media only screen and (max-width: 500px) {
+  .Artist__Image {
+    width: 0;
+    height: 0;
+  }
 }

@@ -4,6 +4,7 @@ import { Link as LinkRR } from 'react-router-dom'
 import './Link.css'
 import { IconCover, IconPerson, IconPlay } from '../Icon'
 import { TrackContext } from '../../context/TrackContext'
+import { numberParserLf, numberToMinSec } from '../../util/numberParser'
 
 const renderCover = element => {
   if (element.type === 'track') element = element.album
@@ -31,12 +32,12 @@ const renderAdditionalElements = element => {
         </>
       )
     case 'artist':
-      return <h5>{element.followers.total} followers</h5>
+      return <h5>{numberParserLf(element.followers.total)} followers</h5>
     case 'track':
       return (
         <>
           {element.album && <h5>{element.artists[0].name}</h5>}
-          <h5>{element.duration_ms}</h5>
+          <h5>{numberToMinSec(element.duration_ms)}</h5>
           {element.explicit && <code>explicit</code>}
         </>
       )
@@ -52,7 +53,7 @@ const Link = ({ element }) => {
     <LinkRR className={`Link Link--${element.type}`} to={`/${element.type}s/${element.id}`}>
       {!element.album && <div className='Link__TrackNumber'>{element.track_number}</div>}
       {element.type === 'track' && (
-        <button
+        <div
           className={`Link__PlayButton ${!element.album && 'Link__PlayButton--FromAlbum'}`}
           onClick={ev => {
             ev.preventDefault()
@@ -60,7 +61,7 @@ const Link = ({ element }) => {
           }}
         >
           <IconPlay />
-        </button>
+        </div>
       )}
       {renderCover(element)}
       <div className='Link__Data'>
