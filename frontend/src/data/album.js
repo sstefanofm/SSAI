@@ -1,4 +1,4 @@
-export const artistsIds = {
+const albumIds = {
   deadmau5: '2CIMQHirSU0MQqyYHq0eOx',
   djBoring: '3MkIU5jhXTMK9pYQTRVI6p',
   avicii: '1vCWHaC5f2uS3yhpwWbIA6',

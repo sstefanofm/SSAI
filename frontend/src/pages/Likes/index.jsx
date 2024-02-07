@@ -10,17 +10,17 @@ const Likes = ({ Service, title = '' }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await Service.get(token)
+      const data = await Service.get(token)
 
-      setData(data)
+      setData(data[`${title.toLowerCase()}`])
     }
 
     fetchData()
-  }, [])
+  }, [data])
 
   return (
     <>
-      <h2>Artists</h2>
+      <h2>{title}</h2>
       <List elements={data} />
     </>
   )

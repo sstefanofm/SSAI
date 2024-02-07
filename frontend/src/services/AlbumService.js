@@ -1,10 +1,10 @@
 import { fetchJson } from './fetch'
+import { formatUrlEncodedIds } from '../util/formatUrlEncodedIds'
 
 const endpoint = 'albums'
 
 const AlbumService = {
-  get: async token => console.log('albumservice Bearer ' + token),
-  // get: async token => fetchJson(`${endpoint}/`, token),
+  get: async token => fetchJson(`${endpoint}`),
   getOne: async (token, id) => fetchJson(`${endpoint}/${id}`, token),
 }
 
