@@ -71,8 +71,6 @@
 
 .Link--track .Link__Image {
   margin-bottom: 2em;
-  min-width: 100px;
-  min-height: 100px;
 }
 
 .Link__Data {
@@ -82,11 +80,11 @@
 }
 
 .Link__Data h4 {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .Link--track .Link__Data > * {
-  margin: 0.4em 0;
+  margin: 0.1em 0;
 }
 
 .Link__PlayButton {
@@ -146,14 +144,13 @@ code {
   }
 
   .Link--track .Link__Image {
-    margin: 10px;
+    margin: 14px;
     width: 18vw;
     height: 18vw;
   }
 
   .Link--track .Link__Data {
-    font-size: 1em;
-    margin: 10px;
+    font-size: 0.75em;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
