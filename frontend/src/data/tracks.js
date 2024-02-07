@@ -1,5 +1,6 @@
 export const tracksIds = {
-  a: '7ouMYWpwJ422jRcDASZB7P',
-  b: '4VqPOruhp5EdPBeR92t6lQ',
-  c: '2takcwOaAZWiXQijPHIx7B',
+  blueByYou: '6hSIZc6GWa6uUTyzSPcwWT',
+  theRed: '1nrBdOAOF6H5qpWfosJUbF',
+  enjoy: '4DNydDiMCbptxZkGq0TQ0V',
+  youthNoMore: '7LM2jE8ElRX1K2DwjD3NGW',
 }
