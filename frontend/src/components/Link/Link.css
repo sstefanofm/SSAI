@@ -109,13 +109,13 @@ code {
   }
 
   .Link__PlayButton {
-    margin-left: 17px;
+    margin-left: 1em;
   }
 }
 
 @media only screen and (max-width: 960px) {
   .Link {
-    width: 80vw;
+    width: 87vw;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -148,8 +148,5 @@ code {
 
   .Link--track .Link__Data {
     font-size: 1em;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
   }
 }

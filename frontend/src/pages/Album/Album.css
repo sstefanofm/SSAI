@@ -22,3 +22,10 @@
   height: 320px;
   object-fit: cover;
 }
+
+@media only screen and (max-width: 410px) {
+  .Album__Image {
+    width: 78vw;
+    height: 78vw;
+  }
+}
