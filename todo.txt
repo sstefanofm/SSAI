@@ -1,0 +1,2 @@
+Gotoartist button in album page.
+Click on song to play it.
