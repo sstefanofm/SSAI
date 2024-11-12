@@ -1,5 +1,11 @@
-Gotoartist button in album page.
-Click on song to play it.
-Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
-Go to / onClick SSAI <h1>
-Like artists, albums, songs. Save even if user exits
+x Gotoartist button in album page.
+- Hover links underline.
+- Goto artist onClick artist name in album search
+- GoTo artist onClick artist name in song search
+- Fix little bug onHover song search view
+- Close burger menu after clicking in other side if its open
+- Click on song to play it.
+- Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
+- Go to / onClick SSAI <h1>
+- Like artists, albums, songs. Save even if user exits
+- Search icon search button
