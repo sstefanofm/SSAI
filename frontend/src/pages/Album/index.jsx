@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react'
-import { NavLink, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import './Album.css'
 import AlbumService from '../../services/AlbumService'
 import { TokenContext } from '../../context/TokenProvider'
 import List from '../../components/List'
+import CustomNavLink from '../../components/CustomNavLink'
 
 const Album = () => {
   const [album, setAlbum] = useState(null)
@@ -22,9 +23,10 @@ const Album = () => {
     album && (
       <div>
         <div className='Album__Data'>
-          <NavLink to={`/artists/${album.artists[0].id}`}>
-            <h4>{album.artists[0].name}</h4>
-          </NavLink>
+          <CustomNavLink
+            to={`/artists/${album.artists[0].id}`}
+            text={album.artists[0].name}
+          />
           <h2>{album.name}</h2>
           <img
             className='Album__Image'
