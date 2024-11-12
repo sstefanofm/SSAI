@@ -6,6 +6,8 @@
   --fgColor: rgba(255, 255, 255, 0.87);
   --bgColor: #242424;
   --buttonHoverBorderColor: #646cff;
+  --navbarTopHeight: 33px;
+  --navbarWidgetHeight: 58px;
 
   color-scheme: light dark;
   color: var(--fgColor);

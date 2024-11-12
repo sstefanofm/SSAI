@@ -4,11 +4,12 @@
 
 .Search {
   position: fixed;
-  top: 2.5em;
+  top: var(--navbarTopHeight);
   left: 50%;
   transform: translate(-50%);
   background-color: rgba(50, 50, 50, 0.8);
   z-index: 2;
+  height: var(--navbarWidgetHeight);
   width: 60vw;
   max-width: 40em;
   min-width: 15em;
@@ -52,6 +53,7 @@
   border-bottom-left-radius: 0;
   border-top-right-radius: var(--searchBorderRadius);
   border-bottom-right-radius: var(--searchBorderRadius);
+  padding-right: 1.8em;
 }
 
 @media only screen and (max-width: 1200px) {
