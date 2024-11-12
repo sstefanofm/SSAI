@@ -2,7 +2,7 @@ x Gotoartist button in album page.
 x Hover links underline.
 z Goto artist onClick artist name in album search
 z GoTo artist onClick artist name in song search
-- Fix little bug onHover song search view
+x Fix little bug onHover song search view
 - Close burger menu after clicking in other side if its open
 - Click on song to play it.
 - Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
