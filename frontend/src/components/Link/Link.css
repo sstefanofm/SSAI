@@ -41,6 +41,12 @@
   min-height: 100px;
 }
 
+.Link--album:hover,
+.Link--artist:hover {
+  transition: 100ms;
+  scale: 1.02;
+}
+
 .Link--track .Link__Data {
   font-size: 1em;
   text-align: left;
