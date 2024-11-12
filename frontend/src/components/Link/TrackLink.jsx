@@ -20,7 +20,7 @@ const renderCover = track => {
 const TrackLink = ({ trackElement }) => {
   const { track, setTrack } = useContext(TrackContext)
   const audioPlayer = document.querySelector('audio')
-  const [paused, setPaused] = useState(audioPlayer.paused)
+  const [paused, setPaused] = useState(!!audioPlayer?.paused)
 
   return (
     <div
