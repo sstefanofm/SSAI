@@ -12,7 +12,19 @@
   left: 50%;
   border-radius: 5px;
   transform: translate(-50%);
-  padding-top: 0.4em;
+  padding-top: .4em;
+}
+
+.Album__Data__ArtistLink {
+  display: inline-flex;
+}
+
+.Album__Data__ArtistLink:hover {
+  text-decoration: underline;
+}
+
+.Album__Data__AlbumName {
+  margin-top: -.7em;
 }
 
 .Album__Image {
