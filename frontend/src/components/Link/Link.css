@@ -9,10 +9,6 @@
   cursor: pointer;
 }
 
-.Link:hover {
-  scale: 1.02;
-}
-
 .Link--artist {
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -36,7 +32,8 @@
 .Link--track {
   background: rgb(0, 0, 0);
   background: linear-gradient(30deg, #33333388 0%, #00000055 45%, #222222ee 89%);
-  font-size: 0.9em;
+  font-size: 1em;
+  padding: 1.4em 0;
   width: 100% !important;
   flex-direction: row !important;
   justify-content: start !important;
@@ -47,10 +44,6 @@
 .Link--track .Link__Data {
   font-size: 1em;
   text-align: left;
-}
-
-.Link--track:hover {
-  scale: 1;
 }
 
 .Link__Image {
