@@ -1,2 +1,3 @@
 Gotoartist button in album page.
 Click on song to play it.
+Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
