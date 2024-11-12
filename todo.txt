@@ -9,3 +9,4 @@ z GoTo artist onClick artist name in song search
 - Go to / onClick SSAI <h1>
 - Like artists, albums, songs. Save even if user exits
 - Search icon search button
+- fix bug after token expires. Re-obtain token
