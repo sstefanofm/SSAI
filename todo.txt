@@ -8,6 +8,8 @@ x Close burger menu after clicking in other side if its open
   - click album cover -> goTo album if not on album already
   - click artist name -> goTo artist if not on artist already
   - 1click |> play song ; 2click [===] play song
+- Instead of making various API requests to get album(s)/artist(s)/track(s),
+    try to get them through props
 - If album/artist/track name too long -> MyTrack Too Long...
 - Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
 - Go to / onClick SSAI <h1>

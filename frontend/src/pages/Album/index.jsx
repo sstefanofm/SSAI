@@ -13,6 +13,9 @@ const Album = () => {
   const { id } = useParams()
 
   useEffect(() => {
+    /* TODO
+     * instead of making an API request each time I enter an /albums/{id} endpoint,
+     *  try to get the Album data through props */
     AlbumService.getOne(token, id).then(album => {
       setAlbum(album)
     })
