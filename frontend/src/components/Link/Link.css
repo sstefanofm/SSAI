@@ -6,10 +6,7 @@
   margin: 1em;
   margin-bottom: 1.5em;
   width: 28vw;
-}
-
-.Link:hover {
-  scale: 1.02;
+  cursor: pointer;
 }
 
 .Link--artist {
@@ -35,7 +32,8 @@
 .Link--track {
   background: rgb(0, 0, 0);
   background: linear-gradient(30deg, #33333388 0%, #00000055 45%, #222222ee 89%);
-  font-size: 0.9em;
+  font-size: 1em;
+  padding: 1.4em 0;
   width: 100% !important;
   flex-direction: row !important;
   justify-content: start !important;
@@ -43,13 +41,15 @@
   min-height: 100px;
 }
 
+.Link--album:hover,
+.Link--artist:hover {
+  transition: 100ms;
+  scale: 1.02;
+}
+
 .Link--track .Link__Data {
   font-size: 1em;
   text-align: left;
-}
-
-.Link--track:hover {
-  scale: 1;
 }
 
 .Link__Image {

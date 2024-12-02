@@ -1,0 +1,22 @@
+x Gotoartist button in album page.
+x Hover links underline.
+z Goto artist onClick artist name in album search
+z GoTo artist onClick artist name in song search
+x Fix little bug onHover song search view
+x Close burger menu after clicking in other side if its open
+- Click on song to play it.
+  - click album cover -> goTo album if not on album already
+  - click artist name -> goTo artist if not on artist already
+  - 1click |> play song ; 2click [===] play song
+- Instead of making various API requests to get album(s)/artist(s)/track(s),
+    try to get them through props
+- If album/artist/track name too long -> MyTrack Too Long...
+- Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
+- Go to / onClick SSAI <h1>
+- Like artists, albums, songs. Save even if user exits
+- Search icon search button
+- fix bug after token expires. Re-obtain token
+- / route
+- set region for making API requests based on ip (or something else)
+- In search, show in "SEARCH" title, the search performed
+    like -> SEARCH: 'abc'

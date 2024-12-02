@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Navbar.css'
@@ -6,7 +6,28 @@ import viteLogo from '../../assets/vite.svg'
 import { IconList, IconBurger } from '../Icon'
 
 const Navbar = () => {
-  const [hidden, setHidden] = useState(false)
+  const [hidden, setHidden] = useState(true)
+  const burgerButtonRef = useRef(null)
+  const burgerMenuRef = useRef(null)
+
+  useEffect(() => {
+    const closeMenuIfClickOutside = event => {
+      if (
+        !burgerButtonRef.current.contains(event.target)
+        && !burgerMenuRef.current.contains(event.target)
+      ) setHidden(true)
+    }
+
+    document.addEventListener(
+      'mousedown',
+      closeMenuIfClickOutside
+    )
+
+    return () => document.removeEventListener(
+      'mousedown',
+      closeMenuIfClickOutside
+    )
+  }, [hidden])
 
   return (
     <div className='Navbar'>
@@ -15,10 +36,18 @@ const Navbar = () => {
         <h1>SSAI</h1>
       </div>
       <div>
-        <button className='Navbar__BurgerButton' onClick={() => setHidden(!hidden)}>
+        <button
+          className='Navbar__BurgerButton'
+          onClick={() => setHidden(!hidden)}
+          ref={burgerButtonRef}
+        >
           {hidden ? <IconList size={20} /> : <IconBurger size={20} />}
         </button>
-        <nav hidden={hidden} className='Navbar__Links'>
+        <nav
+          hidden={hidden}
+          className='Navbar__Links'
+          ref={burgerMenuRef}
+        >
           <Link className='A' to='/albums'>
             <button>Albums</button>
           </Link>

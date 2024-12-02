@@ -1,13 +1,25 @@
-import Artists from './Artists'
+import Likes from './Likes'
 import NotFound from './NotFound'
 import Artist from './Artist'
 import Album from './Album'
 import Search from './Search'
 
+import ArtistService from '../services/ArtistService'
+import AlbumService from '../services/AlbumService'
+import TrackService from '../services/TrackService'
+
 export const routes = [
   {
     path: '/artists',
-    element: <Artists />,
+    element: <Likes Service={ArtistService} title='Artists' />,
+  },
+  {
+    path: '/albums',
+    element: <Likes Service={AlbumService} title='Albums' />,
+  },
+  {
+    path: '/tracks',
+    element: <Likes Service={TrackService} title='Tracks' />,
   },
   {
     path: '/artists/:id',

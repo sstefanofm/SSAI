@@ -10,6 +10,10 @@ const Artists = () => {
   const [artists, setArtists] = useState([])
 
   useEffect(() => {
+    /* TODO
+     * instead of making an API request each time I enter an /artists endpoint,
+     *  try to get the Artist data through props */
+
     const fetchArtists = async () => {
       const { artists } = await ArtistService.get(token)
 
