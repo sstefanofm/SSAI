@@ -16,3 +16,5 @@ x Close burger menu after clicking in other side if its open
 - fix bug after token expires. Re-obtain token
 - / route
 - set region for making API requests based on ip (or something else)
+- In search, show in "SEARCH" title, the search performed
+    like -> SEARCH: 'abc'
