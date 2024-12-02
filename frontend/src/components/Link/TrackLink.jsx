@@ -21,6 +21,7 @@ const TrackLink = ({ trackElement }) => {
   const { track, setTrack } = useContext(TrackContext)
   const audioPlayer = document.querySelector('audio')
   const [paused, setPaused] = useState(!!audioPlayer?.paused)
+  const fromAlbumClassName = !trackElement.album ? 'Link__PlayButton--FromAlbum' : ''
 
   return (
     <div
@@ -41,7 +42,7 @@ const TrackLink = ({ trackElement }) => {
       }}
     >
       {!trackElement.album && <div className='Link__TrackNumber'>{trackElement.track_number}</div>}
-      <div className={`Link__PlayButton ${!trackElement.album && 'Link__PlayButton--FromAlbum'}`}>
+      <div className={`Link__PlayButton ${fromAlbumClassName}`}>
         {track.id === trackElement.id && !paused ? <IconPause /> : <IconPlay />}
       </div>
       {renderCover(trackElement)}
