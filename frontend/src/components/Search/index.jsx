@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import './Search.css'
+import { IconSearch } from '../Icon'
 import { TokenContext } from '../../context/TokenProvider'
 import SearchService from '../../services/SearchService'
-import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
   const token = useContext(TokenContext)
@@ -35,7 +36,9 @@ const Search = () => {
         <option value='artist'>Artists</option>
         <option value='track'>Tracks</option>
       </select>
-      <button onClick={performSearch}>search</button>
+      <button onClick={performSearch}>
+        <IconSearch size={15} />
+      </button>
     </div>
   )
 }
