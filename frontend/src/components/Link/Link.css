@@ -121,7 +121,7 @@ code {
 
 @media only screen and (max-width: 960px) {
   .Link {
-    width: 87vw;
+    width: 87vw !important;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -153,6 +153,15 @@ code {
   }
 
   .Link--track .Link__Data {
+    width: 70%;
+    min-width: 0;
     font-size: 1em;
+  }
+
+  .Link--track .Link__Data h4 {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
