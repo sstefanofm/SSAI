@@ -81,13 +81,27 @@
 }
 
 .Link__Data {
+  width: 100%;
+  min-width: 0;
   text-align: left;
   color: var(--fgColor);
   margin-right: 2em;
 }
 
 .Link__Data h4 {
+  width: 70%;
   font-size: 1em;
+  margin: 1.3em auto 0 auto;
+
+  /* max 2 lines of text before putting '...' */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 1;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+  max-height: calc(1.2em * 2);
 }
 
 .Link--track .Link__Data > * {
@@ -121,7 +135,7 @@ code {
 
 @media only screen and (max-width: 960px) {
   .Link {
-    width: 87vw !important;
+    width: 87vw;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -142,8 +156,7 @@ code {
   }
 
   .Link--track {
-    margin-top: 1em;
-    margin-bottom: 0;
+    margin: 1em auto 0 auto;
   }
 
   .Link--track .Link__Image {
@@ -159,6 +172,8 @@ code {
   }
 
   .Link--track .Link__Data h4 {
+    /* limit to 1 line before '...' on small screens */
+    display: block;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;

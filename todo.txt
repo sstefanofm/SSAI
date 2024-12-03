@@ -23,3 +23,4 @@ UI/UX improvements:
     like -> SEARCH: 'abc'
 - Search icon search button
 - If album/artist/track name too long -> MyTrack Too Long...
+- Some text colors (like number of followers) darker
