@@ -6,11 +6,13 @@ I decided to upload the project after the professors and I liked the result. I t
 So now, I want to publish SSAI and allow others to try and test it.   
 Nowadays, it is not published in a domain, but it will (I hope).   
 ## If you want to test it, TODOs (by you):
-### Create an environment variables file: `./backend/.env` that contains the following variables:
-- PORT=8080
-- CLIENT_ID=<your_Spotify_client_id>
-- CLIENT_SECRET=<your_Spotify_client_secret>
-Read this if you don't know how to obtain and set up your spotify CLIENT_ credentials: [Apps | Spotify for Developers](https://developer.spotify.com/documentation/web-api/concepts/apps)
+### Environment variables
+Create the file: `./backend/.env`   
+That contains the following:
+- `PORT=8080`
+- `CLIENT_ID=<your_Spotify_client_id>`
+- `CLIENT_SECRET=<your_Spotify_client_secret>`   
+Read this if you don't know how to obtain and set up your spotify `CLIENT_ ` credentials: [Apps | Spotify for Developers](https://developer.spotify.com/documentation/web-api/concepts/apps)
 ### Install dependencies
 `cd ./backend/ && npm i && cd ../frontend/ && npm i`
 ### Execute `./init.sh` script
