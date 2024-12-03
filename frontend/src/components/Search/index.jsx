@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import './Search.css'
-import { IconSearch } from '../Icon'
+import { IconDrop, IconSearch } from '../Icon'
 import { TokenContext } from '../../context/TokenProvider'
 import SearchService from '../../services/SearchService'
 
@@ -31,11 +31,14 @@ const Search = () => {
           if (e.key === 'Enter') performSearch()
         }}
       />
-      <select name='searchType' onChange={e => setSearchType(e.target.value)}>
-        <option value='album'>Albums</option>
-        <option value='artist'>Artists</option>
-        <option value='track'>Tracks</option>
-      </select>
+      <div className='Search__FilterSelector' onClick={() => console.log('should open the selector')}>
+        <select name='searchType' onChange={e => setSearchType(e.target.value)}>
+          <option value='album'>Albums</option>
+          <option value='artist'>Artists</option>
+          <option value='track'>Tracks</option>
+        </select>
+        <IconDrop size={15} />
+      </div>
       <button onClick={performSearch}>
         <IconSearch size={15} />
       </button>

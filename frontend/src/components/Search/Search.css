@@ -33,19 +33,35 @@
   border-color: var(--buttonHoverBorderColor);
 }
 
-.Search select {
+.Search__FilterSelector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12vw;
   font-size: 1em;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   padding: 0 0.4em;
-  outline: none;
+  background-color: #1a1a1a;
   border: 0;
   border-left: 1px solid var(--bgColor);
   border-right: 1px solid var(--bgColor);
-  background-color: #1a1a1a;
 }
 
-.Search select:hover {
+.Search__FilterSelector:hover {
   border: 1px solid var(--buttonHoverBorderColor);
+}
+
+.Search__FilterSelector select {
+  outline: none;
+  border: 0;
+  max-width: 200px;
+  text-align: center;
+  background-color: inherit;
+
+  /* hide default select icon */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .Search button {
@@ -53,7 +69,7 @@
   border-bottom-left-radius: 0;
   border-top-right-radius: var(--searchBorderRadius);
   border-bottom-right-radius: var(--searchBorderRadius);
-  padding-right: 1.8em;
+  padding-right: 1.6em;
 }
 
 @media only screen and (max-width: 1200px) {
