@@ -91,7 +91,6 @@
 .Link__Data h4 {
   width: 70%;
   font-size: 1em;
-  margin: 1.3em auto 0 auto;
 
   /* max 2 lines of text before putting '...' */
   display: -webkit-box;
@@ -169,6 +168,10 @@ code {
     width: 70%;
     min-width: 0;
     font-size: 1em;
+  }
+
+  .Link__Data h4 {
+    margin: 1.3em auto 0 auto;
   }
 
   .Link--track .Link__Data h4 {
