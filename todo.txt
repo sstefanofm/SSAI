@@ -21,6 +21,8 @@ UI/UX improvements:
 - Go to / onClick SSAI <h1>
 - In search, show in "SEARCH" title, the search performed
     like -> SEARCH: 'abc'
-- Search icon search button
+x Search icon search button
 x If album/artist/track name too long -> MyTrack Too Long...
 - Some text colors (like number of followers) darker
+- Search filter selector rotation onOpen/onClose
+- Fix search filter selector position along with text
