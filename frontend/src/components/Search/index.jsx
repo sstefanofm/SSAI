@@ -37,7 +37,7 @@ const Search = () => {
           <option value='artist'>Artists</option>
           <option value='track'>Tracks</option>
         </select>
-        <IconDrop size={15} />
+        <IconDrop size={16} />
       </div>
       <button onClick={performSearch}>
         <IconSearch size={15} />
