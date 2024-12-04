@@ -28,15 +28,7 @@ const Search = () => {
   }
 
   useEffect(() => {
-    const article = (() => {
-      switch (searchType) {
-        case searchTypeOptions[0].value:
-        case searchTypeOptions[1].value:
-          return 'an'
-        default:
-          return 'a'
-      }
-    })()
+    const article = searchType === searchTypeOptions[2].value ? 'a' : 'an'
 
     setSearchPlaceholder(
       `Search for ${article} ${searchType}`
@@ -54,11 +46,11 @@ const Search = () => {
           if (e.key === 'Enter') performSearch()
         }}
       />
-      <div className='Search__FilterSelector' onClick={() => console.log('should open the selector')}>
+      <div className='Search__FilterSelector'>
         <select name='searchType' onChange={e => setSearchType(e.target.value)}>
-          <option value='album'>Albums</option>
-          <option value='artist'>Artists</option>
-          <option value='track'>Tracks</option>
+          {searchTypeOptions.map((op, i) => (
+            <option key={op.value + i} value={op.value}>{op.label}</option>
+          ))}
         </select>
         <IconDrop size={16} />
       </div>
