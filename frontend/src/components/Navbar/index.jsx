@@ -33,7 +33,7 @@ const Navbar = () => {
     <div className='Navbar'>
       <div className='Logo'>
         <img src={viteLogo} />
-        <h1>SSAI</h1>
+        <h1><Link to='/'>SSAI</Link></h1>
       </div>
       <div>
         <button
