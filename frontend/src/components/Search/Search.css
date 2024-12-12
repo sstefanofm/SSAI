@@ -55,6 +55,7 @@
   border: 0;
   height: 100%;
   width: 100%;
+  text-align: center;
 
   /* hide default select icon */
   appearance: none;
@@ -64,7 +65,7 @@
 
 .Search__FilterSelector svg {
   position: absolute;
-  background-color: inherit;
+  pointer-events: none;
 }
 
 .Search button {
