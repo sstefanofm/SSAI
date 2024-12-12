@@ -50,16 +50,11 @@
 }
 
 .Search__FilterSelector select {
-  font-size: 1em;
-  position: relative;
+  outline: none;
+  background-color: inherit;
+  border: 0;
   height: 100%;
   width: 100%;
-  outline: none;
-  border: 0;
-  text-align: left;
-  padding-left: 1.6em;
-  padding-bottom: 3px;
-  background-color: inherit;
 
   /* hide default select icon */
   appearance: none;
@@ -69,10 +64,7 @@
 
 .Search__FilterSelector svg {
   position: absolute;
-  right: 83.8px;
-  background: transparent;
-  padding-top: 2px;
-  transform: rotate(180deg);
+  background-color: inherit;
 }
 
 .Search button {

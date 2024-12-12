@@ -47,7 +47,11 @@ const Search = () => {
         }}
       />
       <div className='Search__FilterSelector'>
-        <select name='searchType' onChange={e => setSearchType(e.target.value)}>
+        {/* select has 100% width&height */}
+        <select
+          name='searchType'
+          onChange={e => setSearchType(e.target.value)}
+        >
           {searchTypeOptions.map((op, i) => (
             <option key={op.value + i} value={op.value}>{op.label}</option>
           ))}
