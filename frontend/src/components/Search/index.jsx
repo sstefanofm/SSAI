@@ -12,11 +12,28 @@ const searchTypeOptions = [
   { value: 'track', label: 'Tracks' }
 ]
 
+const getDropdownStyles = (searchType) => {
+  const get = (rightPx) => ({
+    right: rightPx || 30
+  })
+
+  switch (searchType) {
+    case searchTypeOptions[0].value:
+      return get(1)
+    case searchTypeOptions[1].value:
+      return get(10)
+    case searchTypeOptions[2].value:
+    default:
+      return get(100)
+  }
+}
+
 const Search = () => {
   const token = useContext(TokenContext)
   const [searchString, setSearchString] = useState('')
   const [searchType, setSearchType] = useState(searchTypeOptions[0].value)
   const [searchPlaceholder, setSearchPlaceholder] = useState('Search for...')
+  const [selectDropdownIconStyles, setSelectDropdownIconStyles] = useState(getDropdownStyles())
   const navigate = useNavigate()
 
   const performSearch = () => {
@@ -32,6 +49,9 @@ const Search = () => {
 
     setSearchPlaceholder(
       `Search for ${article} ${searchType}`
+    )
+    setSelectDropdownIconStyles(
+      getDropdownStyles(searchType)
     )
   }, [searchType])
 
@@ -56,7 +76,10 @@ const Search = () => {
             <option key={op.value + i} value={op.value}>{op.label}</option>
           ))}
         </select>
-        <IconDrop size={16} />
+        <IconDrop
+          size={16}
+          style={selectDropdownIconStyles}
+        />
       </div>
       <button onClick={performSearch}>
         <IconSearch size={15} />
