@@ -19,12 +19,12 @@ const getDropdownStyles = (searchType) => {
 
   switch (searchType) {
     case searchTypeOptions[0].value:
-      return get(1)
+      return get(85)
     case searchTypeOptions[1].value:
-      return get(10)
+      return get(88)
     case searchTypeOptions[2].value:
     default:
-      return get(100)
+      return get(87)
   }
 }
 

@@ -57,6 +57,7 @@
   width: 100%;
   text-align: center;
   cursor: pointer;
+  padding-right: 1.3em;
 
   /* hide default select icon */
   appearance: none;
