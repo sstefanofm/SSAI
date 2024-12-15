@@ -5,7 +5,8 @@
   border-radius: 5px;
   margin: 1em;
   margin-bottom: 1.5em;
-  width: 28vw;
+  width: 40vw;
+  max-width: 530px;
   cursor: pointer;
 }
 
@@ -123,10 +124,6 @@ code {
 }
 
 @media only screen and (max-width: 1300px) {
-  .Link {
-    width: 40vw;
-  }
-
   .Link__PlayButton {
     margin-left: 1em;
   }
@@ -138,7 +135,7 @@ code {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 2vw;
+    margin: 1.7em auto;
   }
 
   .Link__Image {
