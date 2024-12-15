@@ -33,7 +33,7 @@ const Search = () => {
   const [searchString, setSearchString] = useState('')
   const [searchType, setSearchType] = useState(searchTypeOptions[0].value)
   const [searchPlaceholder, setSearchPlaceholder] = useState('Search for...')
-  const [selectDropdownIconStyles, setSelectDropdownIconStyles] = useState(getDropdownStyles())
+  const [dropdownIconStyles, setDropdownIconStyles] = useState(getDropdownStyles())
   const navigate = useNavigate()
 
   const performSearch = () => {
@@ -50,7 +50,7 @@ const Search = () => {
     setSearchPlaceholder(
       `Search for ${article} ${searchType}`
     )
-    setSelectDropdownIconStyles(
+    setDropdownIconStyles(
       getDropdownStyles(searchType)
     )
   }, [searchType])
@@ -78,7 +78,7 @@ const Search = () => {
         </select>
         <IconDrop
           size={16}
-          style={selectDropdownIconStyles}
+          style={dropdownIconStyles}
         />
       </div>
       <button onClick={performSearch}>
