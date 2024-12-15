@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import './Search.css'
-import { IconDrop, IconSearch } from '../Icon'
+import { IconLifePreserver, IconSearch } from '../Icon'
 import { TokenContext } from '../../context/TokenProvider'
 import SearchService from '../../services/SearchService'
 
@@ -86,7 +86,7 @@ const Search = () => {
             <option key={op.value + i} value={op.value}>{op.label}</option>
           ))}
         </select>
-        <IconDrop
+        <IconLifePreserver
           size={16}
           style={dropdownIconStyles}
         />

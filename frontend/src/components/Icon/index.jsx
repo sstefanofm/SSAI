@@ -1,6 +1,6 @@
 import Burger from './Burger'
 import Cover from './Cover'
-import Drop from './Drop'
+import LifePreserver from './LifePreserver'
 import List from './List'
 import Pause from './Pause'
 import Person from './Person'
@@ -9,7 +9,7 @@ import Search from './Search'
 
 export const IconBurger = ({ size = 30 }) => <Burger size={size} />
 export const IconCover = ({ size = 200 }) => <Cover size={size} />
-export const IconDrop = ({ size = 15, style = {} }) => <Drop size={size} style={style} />
+export const IconLifePreserver = ({ size = 15, style = {} }) => <LifePreserver size={size} style={style} />
 export const IconList = ({ size = 30 }) => <List size={size} />
 export const IconPause = ({ size = 30 }) => <Pause size={size} />
 export const IconPerson = ({ size = 200 }) => <Person size={size} />
