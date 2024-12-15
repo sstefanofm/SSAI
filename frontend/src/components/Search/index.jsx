@@ -12,9 +12,14 @@ const searchTypeOptions = [
   { value: 'track', label: 'Tracks' }
 ]
 
-const getDropdownStyles = (searchType) => {
+const getDropdownStyles = (searchType, runAnimation = false) => {
+  const animateOrStay = runAnimation ?
+    { animation: 'rotate 2s infinite linear' } :
+    { }
+
   const get = (rightPx) => ({
-    right: rightPx || 30
+    right: rightPx || 30,
+    ...animateOrStay
   })
 
   switch (searchType) {
@@ -34,6 +39,7 @@ const Search = () => {
   const [searchType, setSearchType] = useState(searchTypeOptions[0].value)
   const [searchPlaceholder, setSearchPlaceholder] = useState('Search for...')
   const [dropdownIconStyles, setDropdownIconStyles] = useState(getDropdownStyles())
+  const [dropdownFocused, setDropdownFocused] = useState(false)
   const navigate = useNavigate()
 
   const performSearch = () => {
@@ -51,9 +57,9 @@ const Search = () => {
       `Search for ${article} ${searchType}`
     )
     setDropdownIconStyles(
-      getDropdownStyles(searchType)
+      getDropdownStyles(searchType, dropdownFocused)
     )
-  }, [searchType])
+  }, [searchType, dropdownFocused])
 
   return (
     <div className='Search'>
@@ -66,7 +72,11 @@ const Search = () => {
           if (e.key === 'Enter') performSearch()
         }}
       />
-      <div className='Search__FilterSelector'>
+      <div
+        className='Search__FilterSelector'
+        onMouseEnter={() => setDropdownFocused(true)}
+        onMouseLeave={() => setDropdownFocused(false)}
+      >
         {/* select has 100% width&height */}
         <select
           name='searchType'
