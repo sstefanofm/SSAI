@@ -15,7 +15,7 @@ const searchTypeOptions = [
 const getDropdownStyles = (searchType, runAnimation = false) => {
   const animateOrStay = runAnimation ?
     { animation: 'rotate 2s infinite linear' } :
-    { }
+    { transform: `rotate(${ 100 }deg)` }
 
   const get = (rightPx) => ({
     right: rightPx || 30,
