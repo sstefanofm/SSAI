@@ -34,4 +34,10 @@
 .FilterSelector svg {
   position: absolute;
   pointer-events: none;
+  animation: rotate 1.8s linear infinite;
+  animation-play-state: paused;
+}
+
+.FilterSelector:hover svg{
+  animation-play-state: running;
 }
