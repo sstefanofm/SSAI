@@ -9,10 +9,21 @@ export const searchTypeOptions = [
   { value: 'track', label: 'Tracks' }
 ]
 
-const getDropdownStyles = (searchType, runAnimation = false) => {
+const getIconRotationDegrees = (iconElement) => {
+  const matrixStr = getComputedStyle(iconElement).transform
+  const [ _, cos, sin ] = matrixStr.match(
+    /matrix\((-?\d+\.\d+?), (-?\d+\.\d+?), (-?\d+\.\d+?), (-?\d+\.\d+?), (\d+), (\d+)\)/
+  )
+  const rad = Math.atan2(+sin, +cos)
+
+  /* degrees */
+  return rad * (180 / Math.PI)
+}
+
+const getDropdownStyles = (searchType, runAnimation = false, iconElement) => {
   const animateOrStay = runAnimation ?
     { animation: 'rotate 2s infinite linear' } :
-    { transform: `rotate(${ 100 }deg)` }
+    { transform: `rotate(${ getIconRotationDegrees(iconElement) }deg)` }
 
   const get = (rightPx) => ({
     right: rightPx || 30,
@@ -33,11 +44,19 @@ const getDropdownStyles = (searchType, runAnimation = false) => {
 const FilterSelector = ({ filter, setFilter }) => {
   const [dropdownFocused, setDropdownFocused] = useState(false)
   const [dropdownIconStyles, setDropdownIconStyles] = useState(getDropdownStyles())
+  const iconCustomId = 'FilterSelector__Icon'
 
   useEffect(() => {
-    setDropdownIconStyles(
-      getDropdownStyles(filter, dropdownFocused)
-    )
+    const iconElement = document.querySelector('#' + iconCustomId)
+
+    if (!!iconElement)
+      setDropdownIconStyles(
+        getDropdownStyles(
+          filter,
+          dropdownFocused,
+          iconElement
+        )
+      )
   }, [filter, dropdownFocused])
 
   return (
@@ -58,6 +77,7 @@ const FilterSelector = ({ filter, setFilter }) => {
       <IconLifePreserver
         size={16}
         style={dropdownIconStyles}
+        customId={iconCustomId}
       />
     </div>
   )

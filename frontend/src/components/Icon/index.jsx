@@ -9,7 +9,7 @@ import Search from './Search'
 
 export const IconBurger = ({ size = 30 }) => <Burger size={size} />
 export const IconCover = ({ size = 200 }) => <Cover size={size} />
-export const IconLifePreserver = ({ size = 15, style = {} }) => <LifePreserver size={size} style={style} />
+export const IconLifePreserver = ({ size = 15, style = {}, customId }) => <LifePreserver size={size} style={style} customId={customId} />
 export const IconList = ({ size = 30 }) => <List size={size} />
 export const IconPause = ({ size = 30 }) => <Pause size={size} />
 export const IconPerson = ({ size = 200 }) => <Person size={size} />
