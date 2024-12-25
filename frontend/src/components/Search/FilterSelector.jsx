@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import './FilterSelector.css'
 import { IconLifePreserver } from '../Icon'
@@ -11,8 +11,12 @@ export const searchTypeOptions = [
 
 const getIconRotationDegrees = (iconElement) => {
   const matrixStr = getComputedStyle(iconElement).transform
+
+  if (matrixStr === 'none')
+    return 0
+
   const [ _, cos, sin ] = matrixStr.match(
-    /matrix\((-?\d+\.\d+?), (-?\d+\.\d+?), (-?\d+\.\d+?), (-?\d+\.\d+?), (\d+), (\d+)\)/
+    /matrix\((-?\d+\.\d+?), (-?\d+\.\d+?),/
   )
   const rad = Math.atan2(+sin, +cos)
 
@@ -43,20 +47,13 @@ const getDropdownStyles = (searchType, runAnimation = false, iconElement) => {
 
 const FilterSelector = ({ filter, setFilter }) => {
   const [dropdownFocused, setDropdownFocused] = useState(false)
-  const [dropdownIconStyles, setDropdownIconStyles] = useState(getDropdownStyles())
-  const iconCustomId = 'FilterSelector__Icon'
+  const [dropdownIconStyles, setDropdownIconStyles] = useState({})
+  const iconRef = useRef(null)
 
   useEffect(() => {
-    const iconElement = document.querySelector('#' + iconCustomId)
-
-    if (!!iconElement)
-      setDropdownIconStyles(
-        getDropdownStyles(
-          filter,
-          dropdownFocused,
-          iconElement
-        )
-      )
+    setDropdownIconStyles(
+      getDropdownStyles(filter, dropdownFocused, iconRef.current)
+    )
   }, [filter, dropdownFocused])
 
   return (
@@ -65,7 +62,6 @@ const FilterSelector = ({ filter, setFilter }) => {
       onMouseEnter={() => setDropdownFocused(true)}
       onMouseLeave={() => setDropdownFocused(false)}
     >
-      {/* select has 100% width&height */}
       <select
         name='searchType'
         onChange={e => setFilter(e.target.value)}
@@ -77,7 +73,7 @@ const FilterSelector = ({ filter, setFilter }) => {
       <IconLifePreserver
         size={16}
         style={dropdownIconStyles}
-        customId={iconCustomId}
+        iconRef={iconRef}
       />
     </div>
   )
