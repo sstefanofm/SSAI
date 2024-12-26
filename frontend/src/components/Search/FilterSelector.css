@@ -33,6 +33,7 @@
 
 .FilterSelector svg {
   position: absolute;
+  margin-bottom: 2px;
   pointer-events: none;
   animation: rotate 1.8s linear infinite;
   animation-play-state: paused;

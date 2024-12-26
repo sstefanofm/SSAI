@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 
 import { TokenContext } from '../../context/TokenProvider'
 import List from '../../components/List'
+import MainTitle from '../../components/MainTitle'
 
 const Likes = ({ Service, title = '' }) => {
   const token = useContext(TokenContext)
@@ -25,7 +26,7 @@ const Likes = ({ Service, title = '' }) => {
 
   return (
     <>
-      <h2>{title}</h2>
+      <MainTitle>{title}</MainTitle>
       <List elements={data} />
     </>
   )

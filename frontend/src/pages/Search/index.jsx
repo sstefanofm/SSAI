@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
 
 import List from '../../components/List'
+import MainTitle from '../../components/MainTitle'
 
 const Search = () => {
   const { state } = useLocation()
@@ -12,7 +13,7 @@ const Search = () => {
 
   return (
     <div>
-      <h2>Search</h2>
+      <MainTitle>Search</MainTitle>
       <h3>{title}</h3>
       <List elements={state[elementType].items} />
     </div>
