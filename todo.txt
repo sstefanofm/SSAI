@@ -23,8 +23,9 @@ x Go to / onClick SSAI <h1>
     like -> SEARCH: 'abc'
 x Search icon search button
 x If album/artist/track name too long -> MyTrack Too Long...
-- Some text colors (like number of followers) darker
-- Search filter selector rotation onOpen/onClose
+x Some text colors (like number of followers) darker
+x Search filter selector rotation onOpen/onClose
 x Fix search filter selector position along with text
 x Fix width of main content albums&artists too narrow, too much dead space
 - Visual bug to links titles
+- cool font for important things
