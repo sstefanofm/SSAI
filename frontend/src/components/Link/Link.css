@@ -104,6 +104,10 @@
   max-height: calc(1.2em * 2);
 }
 
+.Link__Data h5 {
+  color: var(--fgColor2);
+}
+
 .Link--track .Link__Data > * {
   margin: 0.1em 0;
 }
