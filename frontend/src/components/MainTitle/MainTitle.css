@@ -1,4 +1,4 @@
 .MainTitle {
-  font-family: RecMonoCasual, 'Courier New', Courier, monospace;
+  font-family: var(--importantFont), 'Courier New', Courier, monospace;
   text-shadow: 0px 0px 12px var(--ssaiColor);
 }

@@ -10,7 +10,7 @@
 
 .Navbar__Logo * {
   color: #ccc;
-  font-family: RecMonoCasual, monospace;
+  font-family: var(--importantFont), monospace;
 }
 
 .Navbar__Logo > * {
