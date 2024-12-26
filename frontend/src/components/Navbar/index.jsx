@@ -31,7 +31,7 @@ const Navbar = () => {
 
   return (
     <div className='Navbar'>
-      <div className='Logo'>
+      <div className='Navbar__Logo'>
         <img src={viteLogo} />
         <h1><Link to='/'>SSAI</Link></h1>
       </div>
