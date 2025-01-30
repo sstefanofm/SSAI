@@ -42,7 +42,7 @@ const Artist = () => {
       <div>
         <div className='Artist__Data'>
           <h2 className='Artist__Name'>{artist.name}</h2>
-          <p>
+          <p className='Artist__Followers'>
             <i>{numberParserLf(artist.followers.total)} followers</i>
           </p>
           <img
