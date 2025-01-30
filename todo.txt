@@ -27,5 +27,5 @@ x Some text colors (like number of followers) darker
 x Search filter selector rotation onOpen/onClose
 x Fix search filter selector position along with text
 x Fix width of main content albums&artists too narrow, too much dead space
-- Visual bug to links titles
+x Visual bug to links titles
 - cool font for important things

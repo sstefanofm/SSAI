@@ -100,7 +100,9 @@
   line-clamp: 1;
   -webkit-line-clamp: 2;
   line-height: 1.2;
+
   max-height: calc(1.2em * 2);
+  max-width: 90%;
 }
 
 .Link__Data h5 {
