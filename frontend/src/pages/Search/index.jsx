@@ -19,7 +19,6 @@ const Search = () => {
   return (
     <div>
       <MainTitle>Search for {title} with &quot;{searchString}&quot;</MainTitle>
-      <h3>{capitalize(title)}</h3>
       <List elements={state[elementType].items} />
     </div>
   )
