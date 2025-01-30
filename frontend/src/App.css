@@ -14,6 +14,11 @@
   src: url(./fonts/RecMonoCasualNerdFont-Regular.ttf);
 }
 
+@font-face {
+  font-family: 'ArcheryBlack';
+  src: url(./fonts/ArcheryBlack.ttf)
+}
+
 @media only screen and (max-width: 1700px) {
   #root {
     width: 90%;
