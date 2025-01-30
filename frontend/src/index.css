@@ -3,7 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --importantFont: RecMonoCasual;
+  /* --importantFont: RecMonoCasual; old */
+  --importantFont: ArcheryBlack;
   --ssaiColor: #646cff;
   --fgColor:  rgba(255, 255, 255, 0.87);
   --fgColor2: rgba(158, 158, 158, 0.92);
