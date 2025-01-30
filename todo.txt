@@ -19,7 +19,7 @@ x Close burger menu after clicking in other side if its open
 
 UI/UX improvements:
 x Go to / onClick SSAI <h1>
-- In search, show in "SEARCH" title, the search performed
+x In search, show in "SEARCH" title, the search performed
     like -> SEARCH: 'abc'
 x Search icon search button
 x If album/artist/track name too long -> MyTrack Too Long...
