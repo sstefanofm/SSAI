@@ -1,7 +1,11 @@
-const Track = () => {
+const Track = ({ trackElement }) => {
 
-  return (
-    <div>hello track</div>
+  return trackElement && (
+    <div className='Track'>
+      <div>
+        <img src={trackElement.album.images[2].url} />
+      </div>
+    </div>
   )
 }
 
