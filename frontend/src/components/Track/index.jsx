@@ -2,6 +2,9 @@ import './Track.css'
 import { IconPause, IconPlay } from '../Icon'
 
 const Track = ({ trackElement }) => {
+  console.log(trackElement)
+  /* TODO
+   *  make something with trackElement.is_playable */
 
   return trackElement && (
     <div className='Track'>
@@ -17,6 +20,9 @@ const Track = ({ trackElement }) => {
           className='Track__Header__AlbumCover'
           src={trackElement.album.images[2].url}
         />
+      </div>
+      <div className='Track__Body'>
+        {trackElement.name}
       </div>
     </div>
   )
