@@ -1,5 +1,6 @@
 import './Track.css'
 import { IconPause, IconPlay } from '../Icon'
+import { numberToMinSec } from '../../util/numberParser'
 
 const Track = ({ trackElement }) => {
   console.log(trackElement)
@@ -22,7 +23,17 @@ const Track = ({ trackElement }) => {
         />
       </div>
       <div className='Track__Body'>
-        {trackElement.name}
+        {/* should be an <h4> ? */}
+        <div>{trackElement.name}</div>
+        {
+          /* will be a Link */
+          trackElement.artists.map(
+            artist => (<span>{artist.name}</span>)
+          )
+        }
+        {
+          numberToMinSec(trackElement.duration_ms)
+        }
       </div>
     </div>
   )
