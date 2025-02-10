@@ -1,41 +1,52 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import './Search.css'
+import FilterSelector, { searchTypeOptions } from './FilterSelector'
+import { IconSearch } from '../Icon'
 import { TokenContext } from '../../context/TokenProvider'
 import SearchService from '../../services/SearchService'
-import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
   const token = useContext(TokenContext)
   const [searchString, setSearchString] = useState('')
-  const [searchType, setSearchType] = useState('album')
+  const [searchType, setSearchType] = useState(searchTypeOptions[0].value)
+  const [searchPlaceholder, setSearchPlaceholder] = useState('Search for...')
   const navigate = useNavigate()
 
-  const performSearch = () => {
+  const performSearch = () =>
     SearchService.run(token, searchString, searchType)
       .then(result => {
         navigate('/search', { state: result })
       })
       .catch(console.warn)
-  }
+
+  useEffect(() => {
+    const article = searchType === searchTypeOptions[2].value ? 'a' : 'an'
+
+    setSearchPlaceholder(
+      `Search for ${article} ${searchType}`
+    )
+  }, [searchType])
 
   return (
     <div className='Search'>
       <input
         type='text'
-        placeholder='What do you want to search for?'
+        placeholder={searchPlaceholder}
         name='search'
         onChange={e => setSearchString(e.target.value)}
         onKeyDown={e => {
           if (e.key === 'Enter') performSearch()
         }}
       />
-      <select name='searchType' onChange={e => setSearchType(e.target.value)}>
-        <option value='album'>Albums</option>
-        <option value='artist'>Artists</option>
-        <option value='track'>Tracks</option>
-      </select>
-      <button onClick={performSearch}>search</button>
+      <FilterSelector
+        filter={searchType}
+        setFilter={setSearchType}
+      />
+      <button onClick={performSearch}>
+        <IconSearch size={15} />
+      </button>
     </div>
   )
 }
