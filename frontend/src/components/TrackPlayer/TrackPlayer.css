@@ -1,22 +1,22 @@
-.Track {
+.TrackPlayer {
   position: fixed;
   bottom: 10px;
   left: 50%;
   transform: translate(-50%);
 }
 
-.Track__Player {
+.TrackPlayer__Player {
   width: 60vw;
   max-width: 40em;
   min-width: 15em;
 }
 
 @media only screen and (max-width: 1200px) {
-  .Track {
+  .TrackPlayer {
     bottom: 0;
   }
 
-  .Track__Player {
+  .TrackPlayer__Player {
     width: 80vw;
   }
 }
