@@ -38,7 +38,7 @@ const Album = () => {
             alt={`${album.name} album cover`}
           />
         </div>
-        <List elements={album.tracks.items} />
+        {/* TODO with the new tracks <List elements={album.tracks.items} /> */}
       </div>
     )
   )
