@@ -1,6 +1,7 @@
 import './Track.css'
 import { IconPause, IconPlay } from '../Icon'
 import { numberToMinSec } from '../../util/numberParser'
+import { Link } from 'react-router-dom'
 
 const Track = ({ trackElement }) => {
   console.log(trackElement)
@@ -25,12 +26,23 @@ const Track = ({ trackElement }) => {
       <div className='Track__Body'>
         {/* should be an <h4> ? */}
         <div>{trackElement.name}</div>
-        {
-          /* will be a Link */
-          trackElement.artists.map(
-            artist => (<span key={artist.id}>{artist.name}</span>)
+
+        { /* comma-separated artists list */
+          trackElement.artists.map((artist, i) =>
+            <Link
+              key={artist.id}
+              to={`/artists/${artist.id}`}
+            >
+              {i !== 0 &&
+                <span
+                  className='Track__Body__Artists__Comma'
+                  onClick={e => e.preventDefault()}
+                >,&nbsp;</span>}
+              {artist.name}
+            </Link>
           )
         }
+
         {
           numberToMinSec(trackElement.duration_ms)
         }

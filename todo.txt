@@ -21,3 +21,5 @@ x Close burger menu after clicking in other side if its open
 - set region for making API requests based on ip (or something else)
 - In search, show in "SEARCH" title, the search performed
     like -> SEARCH: 'abc'
+- Show active route of burger menu (like a checkIcon) (*optional)
+  (replace Link wwith NavLink (*activeClassName))

@@ -65,3 +65,10 @@
   justify-content: flex-start;
   text-align: left;
 }
+
+.Track__Body__Artists__Comma {
+  text-decoration: none;
+  color: var(--fgColor);
+  pointer-events: none;
+  cursor: default;
+}
