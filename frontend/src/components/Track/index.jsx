@@ -28,7 +28,7 @@ const Track = ({ trackElement }) => {
         {
           /* will be a Link */
           trackElement.artists.map(
-            artist => (<span>{artist.name}</span>)
+            artist => (<span key={artist.id}>{artist.name}</span>)
           )
         }
         {
