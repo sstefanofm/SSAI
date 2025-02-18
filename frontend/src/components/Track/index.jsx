@@ -18,30 +18,35 @@ const Track = ({ trackElement }) => {
           <IconPlay size={18} />
         }
         </div>
-        <img
+        <Link
           className='Track__Header__AlbumCover'
-          src={trackElement.album.images[2].url}
-        />
+          to={`/albums/${trackElement.album.id}`}
+        >
+          <img src={trackElement.album.images[2].url} />
+        </Link>
       </div>
       <div className='Track__Body'>
         {/* should be an <h4> ? */}
         <div>{trackElement.name}</div>
 
+        <div className='Track__Body__Artists'>
         { /* comma-separated artists list */
-          trackElement.artists.map((artist, i) =>
-            <Link
-              key={artist.id}
-              to={`/artists/${artist.id}`}
-            >
-              {i !== 0 &&
-                <span
-                  className='Track__Body__Artists__Comma'
-                  onClick={e => e.preventDefault()}
-                >,&nbsp;</span>}
-              {artist.name}
-            </Link>
-          )
+        trackElement.artists.map((artist, i) =>
+          <Link
+            key={artist.id}
+            to={`/artists/${artist.id}`}
+          >
+            {i !== 0 &&
+              <span
+                className='Track__Body__Artists__Comma'
+                onClick={e => e.preventDefault()}
+              >,&nbsp;</span>
+            }
+            {artist.name}
+          </Link>
+        )
         }
+        </div>
 
         {
           numberToMinSec(trackElement.duration_ms)
