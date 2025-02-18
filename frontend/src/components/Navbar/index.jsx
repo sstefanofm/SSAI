@@ -27,12 +27,12 @@ const Navbar = () => {
       'mousedown',
       closeMenuIfClickOutside
     )
-  }, [hidden])
+  }, [])
 
   return (
     <div className='Navbar'>
       <div className='Logo'>
-        <img src={viteLogo} />
+        <img src={viteLogo} alt="SSAI Logo (Vite Logo)" />
         <h1>SSAI</h1>
       </div>
       <div>
