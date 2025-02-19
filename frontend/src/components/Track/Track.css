@@ -1,6 +1,5 @@
 .Track {
-  --trackBorder: 1px solid #00000055;
-
+  border: 1px solid var(--bgColor);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -17,11 +16,17 @@
     #22222253 89%
   );
 
-  border: var(--trackBorder);
   border-radius: 5px;
 
+  width: 60%;
+  max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.Track:hover {
+  box-shadow: 0px 0px 10px -1px #000;
+  border: 1px solid #00000055;
 }
 
 .Track__Header {
@@ -77,8 +82,14 @@
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
-  max-width: inherit;
+  max-width: 70%;
   flex: 1;
+}
+
+.Track__Body * {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Track__Body__Artists__Comma {

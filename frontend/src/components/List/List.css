@@ -1,5 +1,17 @@
 .List {
   display: flex;
+  margin: auto;
+  width: 100%;
+}
+
+.List--Columns {
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.List--OneLine {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: auto;
+  align-items: center;
 }
