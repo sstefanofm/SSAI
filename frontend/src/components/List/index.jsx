@@ -4,9 +4,9 @@ import Track from '../Track'
 /* deprecated TrackLink */
 // import TrackLink from '../Link/TrackLink'
 
-const List = ({ elements = [] }) => {
+const List = ({ elements = [], oneLine = false }) => {
   return (
-    <div className='List'>
+    <div className={`List List--${oneLine ? 'OneLine' : 'Columns'}`}>
       {elements.map(e =>
         e.type === 'track' ? (
           <Track key={e.id} trackElement={e} />
