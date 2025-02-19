@@ -25,3 +25,4 @@ x Close burger menu after clicking in other side if its open
   (replace Link wwith NavLink (*activeClassName))
 - Bug /search
     Ctrl + L copy localhost:5173/search and open in new tab
+- TODO info (i) <- hover the icon for more info (e.g: click 2 times song to play it)

@@ -1,4 +1,7 @@
 .Track {
+  cursor: pointer;
+  transition: 100ms;
+
   border: 1px solid var(--bgColor);
   display: flex;
   flex-direction: row;
@@ -22,6 +25,10 @@
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.Track:active {
+  scale: 0.97;
 }
 
 .Track:hover {
