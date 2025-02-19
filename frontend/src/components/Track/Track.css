@@ -3,10 +3,9 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin: 1em;
+  margin: 1em auto;
   margin-top: 0;
   padding: .5em .3em;
 
@@ -20,6 +19,9 @@
 
   border: var(--trackBorder);
   border-radius: 5px;
+
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .Track__Header {
@@ -75,6 +77,8 @@
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
+  max-width: inherit;
+  flex: 1;
 }
 
 .Track__Body__Artists__Comma {
