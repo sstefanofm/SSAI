@@ -33,6 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 .Track__Header__PlayPauseButton {
@@ -82,12 +83,11 @@
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
-  max-width: 70%;
-  flex: 1;
+  flex: 10;
+  overflow: hidden;
 }
 
 .Track__Body * {
-  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -97,4 +97,8 @@
   color: var(--fgColor);
   pointer-events: none;
   cursor: default;
+}
+
+.Track__Like {
+  /*flex: 2.5;*/
 }
