@@ -102,15 +102,19 @@
   text-overflow: ellipsis;
 }
 
-.Track__Body__Artists:hover {
+.Track__Body__Artists__Artist:hover {
   text-decoration: underline;
 }
 
 .Track__Body__Artists__Comma {
-  text-decoration: none;
   color: var(--fgColor);
   pointer-events: none;
   cursor: default;
+  text-decoration: none !important;
+}
+.Track__Body__Artists__Comma::after {
+  content: "  ";
+  text-decoration: none !important;
 }
 
 .Track__Like {
