@@ -1,6 +1,10 @@
 .Track {
+  --trackHoverColor: #888;
+  --trackTransitionMain: 420ms;
+  --trackTransitionSecondary: 120ms;
+
   cursor: pointer;
-  transition: 420ms;
+  transition: var(--trackTransitionMain);
 
   border: 1px solid var(--bgColor);
   display: flex;
@@ -31,12 +35,12 @@
 .Track:active {
   scale: 0.97;
   box-shadow: 0px 0px 10px 0px #00000055;
-  border: 1px solid #888;
+  border: 1px solid var(--trackHoverColor);
 }
 
 .Track:hover {
-  border: 1px solid #888;
-  transition: 120ms;
+  border: 1px solid var(--trackHoverColor);
+  transition: var(--trackTransitionSecondary);
 }
 
 .Track__Header {
@@ -75,12 +79,15 @@
 }
 .Track__Header__AlbumCover img {
   border-radius: 2px;
-  width: 64px;
-  height: 64px;
+  width: 62px;
+  height: 62px;
+  border: 1px solid var(--bgColor);
+  transition: var(--trackTransitionMain);
 }
 .Track__Header__AlbumCover:hover img {
-  scale: 1.03;
-  box-shadow: 0px 0px 10px -5px #000;
+  box-shadow: 0px 0px 10px 0px #000;
+  border: 1px solid var(--trackHoverColor);
+  transition: var(--trackTransitionSecondary);
 }
 
 .Track__Body {
@@ -118,7 +125,7 @@
 }
 
 .Track__Duration {
-  color: #888;
+  color: var(--trackHoverColor);
   font-size: 14px;
   padding-right: 1em;
 }
