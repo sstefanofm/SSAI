@@ -89,6 +89,27 @@
   transition: var(--trackTransitionSecondary);
 }
 
+.Track__Header__AlbumCover--Undefined {
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--trackHoverColor);
+  text-wrap: wrap;
+  font-size: 15px;
+}
+.Track__Header__AlbumCover--Undefined img {
+  border: 1px solid transparent;
+  box-shadow: none !important;
+  outline: none;
+  background: transparent;
+  width: 0;
+  height: 0;
+}
+.Track__Header__AlbumCover--Undefined:hover img {
+  border: 1px solid transparent;
+}
+
 .Track__Body {
   padding: 0 1em;
   display: flex;
