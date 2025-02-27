@@ -67,9 +67,10 @@
 }
 
 .Track__Header__AlbumCover {
-  width: 65px;
-  height: 65px;
+  width: 64px;
+  height: 64px;
   margin-left: 10px;
+  border-radius: 2px;
   box-shadow: 0px 0px 10px -1px #000;
 }
 .Track__Header__AlbumCover img {
