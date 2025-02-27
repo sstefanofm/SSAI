@@ -94,7 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--trackHoverColor);
+  color: var(--trackHoverColor) !important;
   text-wrap: wrap;
   font-size: 15px;
 }
