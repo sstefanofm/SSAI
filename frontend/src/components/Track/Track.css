@@ -105,12 +105,16 @@
   text-overflow: ellipsis;
 }
 
+.Track__Body__Artists__Artist {
+  color: #6a6a6a;
+}
+
 .Track__Body__Artists__Artist:hover {
   text-decoration: underline;
 }
 
 .Track__Body__Artists__Comma {
-  color: var(--fgColor);
+  color: #6a6a6a;
   pointer-events: none;
   cursor: default;
   text-decoration: none !important;
