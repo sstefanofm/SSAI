@@ -32,18 +32,20 @@ const Track = ({ trackElement }) => {
         <div className='Track__Body__Artists'>
         { /* comma-separated artists list */
         trackElement.artists.map((artist, i) =>
-          <Link
-            key={artist.id}
-            to={`/artists/${artist.id}`}
-          >
-            {i !== 0 &&
+          <span key={artist.id}>
+            <Link
+              className='Track__Body__Artists__Artist'
+              to={`/artists/${artist.id}`}
+            >
+              {artist.name}
+            </Link>
+            {i !== trackElement.artists.length - 1 &&
               <span
                 className='Track__Body__Artists__Comma'
                 onClick={e => e.preventDefault()}
-              >,&nbsp;</span>
+              >,</span>
             }
-            {artist.name}
-          </Link>
+          </span>
         )
         }
         </div>
