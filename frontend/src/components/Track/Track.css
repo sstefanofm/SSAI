@@ -22,7 +22,7 @@
 
   border-radius: 5px;
 
-  width: 60%;
+  width: 91%;
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -100,6 +100,10 @@
 .Track__Body * {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.Track__Body__Artists:hover {
+  text-decoration: underline;
 }
 
 .Track__Body__Artists__Comma {
