@@ -1,6 +1,6 @@
 .Track {
   cursor: pointer;
-  transition: 100ms;
+  transition: 420ms;
 
   border: 1px solid var(--bgColor);
   display: flex;
@@ -18,7 +18,7 @@
     #00000053 45%,
     #22222253 89%
   );
-  box-shadow: 0px 0px 10px -4px #00000022;
+  box-shadow: 0px 0px 10px 0px #00000022;
 
   border-radius: 5px;
 
@@ -30,11 +30,12 @@
 
 .Track:active {
   scale: 0.97;
-  box-shadow: 0px 0px 10px -3px #00000055;
+  box-shadow: 0px 0px 10px 0px #00000055;
 }
 
 .Track:hover {
-  /*border: 1px solid #00000055;*/
+  border: 1px solid #888;
+  transition: 120ms;
 }
 
 .Track__Header {
