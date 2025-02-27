@@ -110,3 +110,9 @@
 .Track__Like {
   /*flex: 2.5;*/
 }
+
+.Track__Duration {
+  color: #888;
+  font-size: 14px;
+  padding-right: 1em;
+}

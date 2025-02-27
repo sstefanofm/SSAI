@@ -48,12 +48,13 @@ const Track = ({ trackElement }) => {
         }
         </div>
 
-        {
-          numberToMinSec(trackElement.duration_ms)
-        }
       </div>
-      {/* TODO */}
-      <div className='Track__Like'></div>
+
+      <div className='Track__Like'>{/* TODO */}</div>
+
+      <div className='Track__Duration'>
+        { numberToMinSec(trackElement.duration_ms) }
+      </div>
     </div>
   )
 }
