@@ -14,8 +14,8 @@ const Track = ({ trackElement }) => {
         <div className='Track__Header__PlayPauseButton'>
         {
           false /* TODO */ ?
-          <IconPause size={18} /> :
-          <IconPlay size={18} />
+          <IconPause size={32} /> :
+          <IconPlay size={32} />
         }
         </div>
         <Link

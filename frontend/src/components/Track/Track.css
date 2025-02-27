@@ -52,18 +52,13 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: var(--trackBorder);
-  border-radius: 50%;
-  background-color: var(--bgColor);
   color: var(--fgColor);
   margin: .6em;
   cursor: pointer;
 }
 
 .Track__Header__PlayPauseButton svg {
-    stroke-width: 12;
-    stroke: var(--bgColor);
-    color: var(--bgColor);
+  color: var(--fgColor);
 }
 .Track__Header__PlayPauseButton:hover,
 .Track__Header__PlayPauseButton:hover * * {
