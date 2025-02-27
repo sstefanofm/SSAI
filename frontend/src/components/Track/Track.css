@@ -32,15 +32,14 @@
   white-space: nowrap;
 }
 
-.Track:active {
-  scale: 0.99;
-  box-shadow: 0px 0px 10px 0px #00000055;
-  border: 1px solid var(--trackHoverColor);
-}
-
 .Track:hover {
   border: 1px solid var(--trackHoverColor);
   transition: var(--trackTransitionSecondary);
+}
+
+.Track:active {
+  box-shadow: 0px 0px 10px 0px #00000055;
+  border: 1px solid #fff;
 }
 
 .Track__Header {
@@ -62,12 +61,12 @@
 }
 
 .Track__Header__PlayPauseButton svg {
-  color: var(--fgColor);
+  color: var(--trackHoverColor);
 }
 .Track__Header__PlayPauseButton:hover,
 .Track__Header__PlayPauseButton:hover * * {
-  filter: drop-shadow(0 0 4px #00000066);
-  color: var(--buttonHoverBorderColor);
+  filter: drop-shadow(0 0 4px #ffffff22);
+  color: var(--fgColor);
 }
 
 .Track__Header__AlbumCover {
