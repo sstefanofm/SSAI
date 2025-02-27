@@ -4,7 +4,8 @@ import { numberToMinSec } from '../../util/numberParser'
 import { Link } from 'react-router-dom'
 
 const Track = ({ trackElement }) => {
-  console.log(trackElement)
+  const coverUrl = trackElement.album.images?.[2]?.url
+
   /* TODO
    *  make something with trackElement.is_playable */
 
@@ -19,10 +20,11 @@ const Track = ({ trackElement }) => {
         }
         </div>
         <Link
-          className='Track__Header__AlbumCover'
+          className={`Track__Header__AlbumCover ${!coverUrl ? 'Track__Header__AlbumCover--Undefined' : ''}`}
           to={`/albums/${trackElement.album.id}`}
         >
-          <img src={trackElement.album.images[2].url} />
+          <img src={coverUrl} />
+          {!coverUrl && 'no cover :('}
         </Link>
       </div>
       <div className='Track__Body'>
