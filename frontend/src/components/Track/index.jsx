@@ -8,6 +8,11 @@ const Track = ({ trackElement }) => {
 
   /* TODO
    *  make something with trackElement.is_playable */
+  /* TODO
+   *  make something with trackElement.explicit */
+  /* TODO
+   *  make something with !trackElement.preview_url
+   *   every preview_url is undefined now */
 
   return trackElement && (
     <div className='Track'>
