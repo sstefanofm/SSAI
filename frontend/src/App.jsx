@@ -2,7 +2,7 @@ import { useRoutes } from 'react-router-dom'
 
 import './App.css'
 import TokenProvider from './context/TokenProvider'
-import TrackProvider, { TrackContext } from './context/TrackContext'
+import TrackProvider from './context/TrackProvider'
 import { routes } from './pages/routes'
 import Search from './components/Search'
 import TrackPlayer from './components/TrackPlayer'

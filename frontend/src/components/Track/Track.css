@@ -42,6 +42,12 @@
   border: 1px solid #fff;
 }
 
+.Track--Disabled {
+  color: grey;
+  border: 1px solid var(--bgColor);
+  /* TODO uncomment pointer-events: none; */
+}
+
 .Track__Header {
   display: flex;
   justify-content: center;

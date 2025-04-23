@@ -1,10 +1,15 @@
+import { Link } from 'react-router-dom'
+
 import './Track.css'
 import { IconPause, IconPlay } from '../Icon'
 import { numberToMinSec } from '../../util/numberParser'
-import { Link } from 'react-router-dom'
+import { useTrack } from '../../context/TrackProvider'
 
 const Track = ({ trackElement }) => {
+  const { setCurrentTrack } = useTrack()
+
   const coverUrl = trackElement.album.images?.[2]?.url
+  const playable = trackElement.is_playable
 
   /* TODO
    *  make something with trackElement.is_playable */
@@ -14,10 +19,21 @@ const Track = ({ trackElement }) => {
    *  make something with !trackElement.preview_url
    *   every preview_url is undefined now */
 
+  const playSong = (ev) => {
+    if (!playable) {
+      ev.preventDefault()
+      return
+    }
+    setCurrentTrack('hello ' + trackElement.name)
+  }
+
   return trackElement && (
-    <div className='Track'>
+    <div className={`Track ${!playable ? 'Track--Disabled' : ''}`}>
       <div className='Track__Header'>
-        <div className='Track__Header__PlayPauseButton'>
+        <div
+          className='Track__Header__PlayPauseButton'
+          onClick={playSong}
+        >
         {
           false /* TODO */ ?
           <IconPause size={32} /> :
