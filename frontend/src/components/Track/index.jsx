@@ -24,7 +24,7 @@ const Track = ({ trackElement }) => {
       ev.preventDefault()
       return
     }
-    setCurrentTrack('hello ' + trackElement.name)
+    setCurrentTrack(trackElement.id)
   }
 
   return trackElement && (
