@@ -1,23 +1,20 @@
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Track.css'
+import TrackTooltip from './TrackTooltip'
 import { IconExplicit, IconPause, IconPlay } from '../Icon'
 import { numberToMinSec } from '../../util/numberParser'
 import { useTrack } from '../../context/TrackProvider'
 
 const Track = ({ trackElement }) => {
   const { setCurrentTrack } = useTrack()
+  const [tooltipOpen, setTooltipOpen] = useState(false)
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
+  const playButtonRef = useRef(null)
 
   const coverUrl = trackElement.album.images?.[2]?.url
   const playable = trackElement.is_playable
-
-  /* TODO
-   *  make something with trackElement.is_playable */
-  /* TODO
-   *  make something with trackElement.explicit */
-  /* TODO
-   *  make something with !trackElement.preview_url
-   *   every preview_url is undefined now */
 
   const playSong = (ev) => {
     if (!playable) {
@@ -27,12 +24,32 @@ const Track = ({ trackElement }) => {
     setCurrentTrack(trackElement.id)
   }
 
+  const openTrackTooltip = (event) => {
+    if (!playable) {
+      ev.preventDefault()
+      return
+    }
+
+    const rect = playButtonRef.current.getBoundingClientRect()
+
+    setTooltipPosition({
+      x: rect.left,
+      y: rect.bottom + 5
+    })
+    setTooltipOpen(true)
+  }
+
+  const closeTooltip = () => {
+    setTooltipOpen(false)
+  }
+
   return trackElement && (
     <div className={`Track ${!playable ? 'Track--Disabled' : ''}`}>
       <div className='Track__Header'>
         <div
           className='Track__Header__PlayPauseButton'
-          onClick={playSong}
+          onClick={openTrackTooltip}
+          ref={playButtonRef}
         >
         {
           false /* TODO */ ?
@@ -49,7 +66,6 @@ const Track = ({ trackElement }) => {
         </Link>
       </div>
       <div className='Track__Body'>
-        {/* should be an <h4> ? */}
         <div>
           {trackElement.explicit && (<><IconExplicit size={11} />&nbsp;</>)}
           {trackElement.name}
@@ -83,6 +99,14 @@ const Track = ({ trackElement }) => {
       <div className='Track__Duration'>
         { numberToMinSec(trackElement.duration_ms) }
       </div>
+
+      {/* Track tooltip */}
+      <TrackTooltip
+        isOpen={tooltipOpen}
+        position={tooltipPosition}
+        onClose={closeTooltip}
+      >
+      </TrackTooltip>
     </div>
   )
 }
