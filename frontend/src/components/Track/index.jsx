@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import './Track.css'
-import { IconPause, IconPlay } from '../Icon'
+import { IconExplicit, IconPause, IconPlay } from '../Icon'
 import { numberToMinSec } from '../../util/numberParser'
 import { useTrack } from '../../context/TrackProvider'
 
@@ -50,7 +50,10 @@ const Track = ({ trackElement }) => {
       </div>
       <div className='Track__Body'>
         {/* should be an <h4> ? */}
-        <div>{trackElement.name}</div>
+        <div>
+          {trackElement.explicit && (<><IconExplicit size={11} />&nbsp;</>)}
+          {trackElement.name}
+        </div>
 
         <div className='Track__Body__Artists'>
         { /* comma-separated artists list */
