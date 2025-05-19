@@ -45,7 +45,11 @@
 .Track--Disabled {
   color: grey;
   border: 1px solid var(--bgColor);
-  /* TODO uncomment pointer-events: none; */
+  pointer-events: none;
+}
+
+.Track--Disabled .Track__Header__PlayPauseButton svg {
+  color: #555 !important;
 }
 
 .Track__Header {
