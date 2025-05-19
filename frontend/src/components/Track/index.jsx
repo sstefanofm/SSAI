@@ -69,6 +69,7 @@ const Track = ({ trackElement }) => {
           {!coverUrl && 'no cover :('}
         </Link>
       </div>
+
       <div className='Track__Body'>
         <div>
           {trackElement.explicit && (<><IconExplicit size={11} />&nbsp;</>)}
@@ -77,22 +78,35 @@ const Track = ({ trackElement }) => {
 
         <div className='Track__Body__Artists'>
         { /* comma-separated artists list */
+
         trackElement.artists.map((artist, i) =>
           <span key={artist.id}>
-            <Link
-              className='Track__Body__Artists__Artist'
-              to={`/artists/${artist.id}`}
-            >
-              {artist.name}
-            </Link>
+
+            {/* if current artist webpage is artist */
+            window.location.pathname.split('/').pop() === artist.id ?
+              (<span className='Track__Body__Artists__Artist'>
+                {artist.name}
+              </span>)
+              /* show only name, not link */
+              :
+              (<Link
+                className='Track__Body__Artists__Artist'
+                to={`/artists/${artist.id}`}
+              >
+                {artist.name}
+              </Link>)
+            }
+
             {i !== trackElement.artists.length - 1 &&
               <span
                 className='Track__Body__Artists__Comma'
                 onClick={e => e.preventDefault()}
               >,</span>
             }
+
           </span>
         )
+
         }
         </div>
 

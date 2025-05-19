@@ -15,8 +15,8 @@ x 2Click on [===] "" "" ""
 
 - Instead of making various API requests to get album(s)/artist(s)/track(s),
     try to get them through props
-- If album/artist/track name too long -> MyTrack Too Long...
-- Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
+x If album/artist/track name too long -> MyTrack Too Long...
+/ Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
 - Go to / onClick SSAI <h1>
 - Like artists, albums, songs. Save even if user exits
 - Search icon search button
