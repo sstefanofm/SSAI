@@ -2,13 +2,13 @@ import { useEffect, useRef } from 'react'
 
 import './TrackTooltip.css'
 
-const TrackTooltip = ({ isOpen, onClose, position, trackName }) => {
+const TrackTooltip = ({ isOpen, close, position }) => {
   const tooltipRef = useRef(null)
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (tooltipRef.current && !tooltipRef.current.contains(event.target))
-        onClose()
+        close()
     }
 
     if (isOpen)
@@ -17,7 +17,7 @@ const TrackTooltip = ({ isOpen, onClose, position, trackName }) => {
     return () => {
       document.addEventListener('mousedown', handleOutsideClick)
     }
-  }, [isOpen, onClose])
+  }, [isOpen, close])
 
   if (!isOpen)
     return <></>
@@ -31,33 +31,16 @@ const TrackTooltip = ({ isOpen, onClose, position, trackName }) => {
         left: `${position.x}px`
       }}
     >
-      <p className="TrackTooltip__Title">Play "{trackName}"?</p>
-      <div className="TrackTooltip__Actions">
-        <button 
-          className="TrackTooltip__Button TrackTooltip__Button--Play"
-        >
-          Play Now
-        </button>
-        <button 
-          className="TrackTooltip__Button TrackTooltip__Button--Cancel"
-          onClick={onClose}
-        >
-          Cancel
-        </button>
-      </div><p className="TrackTooltip__Title">Play "{trackName}"?</p>
-      <div className="TrackTooltip__Actions">
-        <button 
-          className="TrackTooltip__Button TrackTooltip__Button--Play"
-        >
-          Play Now
-        </button>
-        <button 
-          className="TrackTooltip__Button TrackTooltip__Button--Cancel"
-          onClick={onClose}
-        >
-          Cancel
-        </button>
-      </div>
+      Spotify&nbsp;
+      <a
+        href="https://community.spotify.com/t5/Spotify-for-Developers/Preview-URLs-MP3-no-longer-exist-all-tracks/td-p/6685031"
+        target="_blank"
+      >
+        doesn&apos;t allow song previews anymore
+      </a>
+      &nbsp;:(<br />
+      But you can still listen to it!&nbsp;
+      <a href="">Open it on Spotify</a>.
     </div>
   )
 }

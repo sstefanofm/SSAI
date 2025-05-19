@@ -105,7 +105,7 @@ const Track = ({ trackElement }) => {
       <TrackTooltip
         isOpen={tooltipOpen}
         position={tooltipPosition}
-        onClose={closeTooltip}
+        close={closeTooltip}
       >
       </TrackTooltip>
     </div>
