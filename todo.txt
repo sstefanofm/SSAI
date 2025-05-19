@@ -10,8 +10,8 @@ x Close burger menu after clicking in other side if its open
   / 1click |> play song
   / 2click [===] play song?
 
-- Click on |> of song to open tooltip to goTo song page
-- 2Click on [===] "" "" ""
+x Click on |> of song to open tooltip to goTo song page
+x 2Click on [===] "" "" ""
 
 - Instead of making various API requests to get album(s)/artist(s)/track(s),
     try to get them through props
