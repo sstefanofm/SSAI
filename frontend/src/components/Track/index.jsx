@@ -35,7 +35,7 @@ const Track = ({ trackElement }) => {
 
     setTooltipPosition({
       x: event.pageX + 15,
-      y: y < axisY ? y : y - 220,
+      y: y < axisY ? y : y - 165,
     })
     setTooltipOpen(true)
   }
