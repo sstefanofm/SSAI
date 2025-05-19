@@ -12,6 +12,11 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
+.TrackTooltip h2 {
+  font-family: var(--importantFont), 'Courier New', Courier, monospace;
+  text-shadow: 0px 0px 12px var(--ssaiColor);
+}
+
 .TrackTooltip a:hover {
   text-decoration: underline;
 }

@@ -31,9 +31,7 @@ const TrackTooltip = ({ isOpen, close, position, track }) => {
         left: `${position.x}px`
       }}
     >
-      <div>
-        {track.name} ~ {track.artists[0].name}
-      </div>
+      <h2>{track.name} ~ {track.artists[0].name}</h2>
       Spotify&nbsp;
       <a
         href="https://community.spotify.com/t5/Spotify-for-Developers/Preview-URLs-MP3-no-longer-exist-all-tracks/td-p/6685031"
