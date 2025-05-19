@@ -106,7 +106,7 @@ const Track = ({ trackElement }) => {
         isOpen={tooltipOpen}
         position={tooltipPosition}
         close={closeTooltip}
-        trackUrl={trackElement.external_urls.spotify}
+        track={trackElement}
       >
       </TrackTooltip>
     </div>
