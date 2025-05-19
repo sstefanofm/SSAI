@@ -35,7 +35,7 @@ const Artist = () => {
     fetchArtist()
     getTopTracks()
     getAlbums()
-  }, [])
+  }, [id])
 
   return (
     artist && (
