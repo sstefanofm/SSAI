@@ -24,6 +24,7 @@ const TrackTooltip = ({ isOpen, onClose, position, trackName }) => {
 
   return (
     <div
+      className='TrackTooltip'
       ref={tooltipRef}
       style={{
         top: `${position.y}px`,
