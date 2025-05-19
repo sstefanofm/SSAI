@@ -1,9 +1,17 @@
 .TrackTooltip {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 7px;
-  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--bgColor);
+  border-radius: 5px;
+  padding: 1.2em;
   z-index: 1000;
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.TrackTooltip a:hover {
+  text-decoration: underline;
 }

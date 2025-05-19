@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 import './TrackTooltip.css'
 
-const TrackTooltip = ({ isOpen, close, position }) => {
+const TrackTooltip = ({ isOpen, close, position, trackUrl = '' }) => {
   const tooltipRef = useRef(null)
 
   useEffect(() => {
@@ -40,7 +40,10 @@ const TrackTooltip = ({ isOpen, close, position }) => {
       </a>
       &nbsp;:(<br />
       But you can still listen to it!&nbsp;
-      <a href="">Open it on Spotify</a>.
+      <a
+        href={trackUrl}
+        target="_blank"
+      >Open it on Spotify</a>.
     </div>
   )
 }
