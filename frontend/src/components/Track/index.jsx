@@ -30,11 +30,12 @@ const Track = ({ trackElement }) => {
       return
     }
 
-    const rect = playButtonRef.current.getBoundingClientRect()
+    const axisY = window.scrollY + window.innerHeight / 2
+    const y = event.pageY
 
     setTooltipPosition({
-      x: rect.left,
-      y: rect.bottom + 5
+      x: event.pageX + 15,
+      y: y < axisY ? y : y - 220,
     })
     setTooltipOpen(true)
   }
