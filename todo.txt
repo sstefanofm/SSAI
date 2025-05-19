@@ -6,12 +6,14 @@ x Fix little bug onHover song search view
 x Close burger menu after clicking in other side if its open
 / Click on song to play it.
   - click album cover -> goTo album if not on album already
-  - click artist name -> goTo artist if not on artist already
+  x click artist name -> goTo artist if not on artist already
   / 1click |> play song
   / 2click [===] play song?
 
 x Click on |> of song to open tooltip to goTo song page
 x 2Click on [===] "" "" ""
+
+- Album page render all tracks
 
 - Instead of making various API requests to get album(s)/artist(s)/track(s),
     try to get them through props
