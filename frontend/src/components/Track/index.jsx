@@ -45,7 +45,10 @@ const Track = ({ trackElement }) => {
   }
 
   return trackElement && (
-    <div className={`Track ${!playable ? 'Track--Disabled' : ''}`}>
+    <div
+      className={`Track ${!playable ? 'Track--Disabled' : ''}`}
+      onDoubleClick={openTrackTooltip}
+    >
       <div className='Track__Header'>
         <div
           className='Track__Header__PlayPauseButton'
