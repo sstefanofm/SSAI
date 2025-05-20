@@ -42,6 +42,14 @@
   border: 1px solid #fff;
 }
 
+.Track--NoAlbum {
+  margin-bottom: 2px;
+}
+
+.Track--NoAlbum:nth-child(1) {
+  border-top: 0 !important;
+}
+
 .Track--Disabled {
   color: grey;
   border: 1px solid var(--bgColor);
@@ -133,6 +141,11 @@
 .Track__Body * {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.Track__Body--NoAlbum {
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .Track__Body__Artists__Artist {

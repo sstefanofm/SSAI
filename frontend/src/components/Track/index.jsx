@@ -7,14 +7,14 @@ import { IconExplicit, IconPause, IconPlay } from '../Icon'
 import { numberToMinSec } from '../../util/numberParser'
 import { useTrack } from '../../context/TrackProvider'
 
-const Track = ({ trackElement }) => {
+const Track = ({ trackElement, isFromAlbumView }) => {
   const { setCurrentTrack } = useTrack()
   const [tooltipOpen, setTooltipOpen] = useState(false)
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
   const playButtonRef = useRef(null)
 
-  const coverUrl = trackElement.album.images?.[2]?.url
-  const playable = trackElement.is_playable
+  const coverUrl = trackElement.album?.images?.[2]?.url
+  const playable = trackElement.is_playable || isFromAlbumView
 
   const playSong = (ev) => {
     if (!playable) {
@@ -46,7 +46,7 @@ const Track = ({ trackElement }) => {
 
   return trackElement && (
     <div
-      className={`Track ${!playable ? 'Track--Disabled' : ''}`}
+      className={`Track ${!playable ? 'Track--Disabled' : ''} ${trackElement.album ? '' : 'Track--NoAlbum'}`}
       onDoubleClick={openTrackTooltip}
     >
       <div className='Track__Header'>
@@ -61,18 +61,21 @@ const Track = ({ trackElement }) => {
           <IconPlay size={32} />
         }
         </div>
-        <Link
-          className={`Track__Header__AlbumCover ${!coverUrl ? 'Track__Header__AlbumCover--Undefined' : ''}`}
-          to={`/albums/${trackElement.album.id}`}
-        >
-          <img src={coverUrl} />
-          {!coverUrl && 'no cover :('}
-        </Link>
+
+        {trackElement.album && (
+          <Link
+            className={`Track__Header__AlbumCover ${!coverUrl ? 'Track__Header__AlbumCover--Undefined' : ''}`}
+            to={`/albums/${trackElement.album.id}`}
+          >
+            <img src={coverUrl} />
+            {!coverUrl && 'no cover :('}
+          </Link>
+        )}
       </div>
 
-      <div className='Track__Body'>
+      <div className={`Track__Body ${trackElement.album ? '' : 'Track__Body--NoAlbum'}`}>
         <div>
-          {trackElement.explicit && (<><IconExplicit size={11} />&nbsp;</>)}
+          {/* TODO use --importantFont ref/ui-ux */trackElement.explicit && (<><IconExplicit size={11} />&nbsp;</>)}
           {trackElement.name}
         </div>
 
