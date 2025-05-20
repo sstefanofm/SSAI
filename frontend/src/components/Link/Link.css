@@ -18,14 +18,15 @@
 }
 
 .Link--artist {
-  --middleColor: rgba(26, 26, 29, .73);
+  /* --middleColor: rgba(26, 26, 29, .73); */
+  --middleColor: rgba(10, 10, 10, 0.43);
 
   background: rgb(2, 0, 36);
   background: linear-gradient(
     30deg,
-    rgba(2,   0, 36, .73) 0%,
+    rgba(2,   0, 36, .43) 0%,
       var(--middleColor)    45%,
-    rgba(18, 16, 29, .73) 89%
+    rgba(18, 16, 39, .43) 89%
   );
   border: 1px solid var(--middleColor);
 }

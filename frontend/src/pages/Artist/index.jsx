@@ -51,9 +51,9 @@ const Artist = () => {
             alt={`${artist.name} profile picture`}
           />
         </div>
-        <h3>Top songs</h3>
+        {topTracks.length ? <h3>Top songs</h3> : <></>}
         <List elements={topTracks} />
-        <h3>Albums</h3>
+        {albums.length ? <h3>Albums</h3> : <></>}
         <List elements={albums} />
       </div>
     )

@@ -21,6 +21,7 @@
 
 .Artist__Followers {
   color: var(--fgColor3);
+  margin-top: 0;
 }
 
 .Artist__Image {

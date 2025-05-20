@@ -44,7 +44,7 @@ const TrackTooltip = ({ isOpen, close, position, track }) => {
       <a
         href={track.external_urls.spotify}
         target="_blank"
-      >Open it on Spotify</a>.
+      >Open it on Spotify</a>
     </div>
   )
 }
