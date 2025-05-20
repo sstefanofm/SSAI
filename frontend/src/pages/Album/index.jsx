@@ -19,7 +19,7 @@ const Album = () => {
     AlbumService.getOne(token, id).then(album => {
       setAlbum(album)
     })
-  }, [])
+  }, [id])
 
   return (
     album && (
@@ -38,7 +38,12 @@ const Album = () => {
             alt={`${album.name} album cover`}
           />
         </div>
-        {/* TODO with the new tracks <List elements={album.tracks.items} /> */}
+
+        <List
+          elements={album.tracks.items}
+          oneLine={true}
+          isAlbumView={true}
+        />
       </div>
     )
   )

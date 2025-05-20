@@ -14,7 +14,11 @@ const Search = () => {
     <div>
       <h2>Search</h2>
       <h3>{title}</h3>
-      <List elements={state[elementType].items} oneLine={elementType === 'tracks'} />
+      <List
+        elements={state[elementType].items}
+        oneLine={elementType === 'tracks'}
+        isAlbumView={false}
+      />
     </div>
   )
 }
