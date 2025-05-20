@@ -42,9 +42,9 @@ const Artist = () => {
       <div>
         <div className='Artist__Data'>
           <h2 className='Artist__Name'>{artist.name}</h2>
-          <p>
-            <i>{numberParserLf(artist.followers.total)} followers</i>
-          </p>
+          <h5 className='Artist__Followers'>
+            {numberParserLf(artist.followers.total)} followers
+          </h5>
           <img
             className='Artist__Image'
             src={artist.images[1].url}

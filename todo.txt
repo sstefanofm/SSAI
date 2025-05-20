@@ -17,18 +17,33 @@ x Album page render all tracks
 
 - Instead of making various API requests to get album(s)/artist(s)/track(s),
     try to get them through props
+
 x If album/artist/track name too long -> MyTrack Too Long...
 / Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
 - Go to / onClick SSAI <h1>
+
 - Like artists, albums, songs. Save even if user exits
-- Search icon search button
 - fix bug after token expires. Re-obtain token
 - / route
 - set region for making API requests based on ip (or something else)
-- In search, show in "SEARCH" title, the search performed
+
+UI/UX improvements:
+x Go to / onClick SSAI <h1>
+x In search, show in "SEARCH" title, the search performed
     like -> SEARCH: 'abc'
+
+x Search icon search button
+x If album/artist/track name too long -> MyTrack Too Long...
+x Some text colors (like number of followers) darker
+x Search filter selector rotation onOpen/onClose
+x Fix search filter selector position along with text
+x Fix width of main content albums&artists too narrow, too much dead space
+x Visual bug to links titles
+x cool font for important things
+
 - Show active route of burger menu (like a checkIcon) (*optional)
   (replace Link wwith NavLink (*activeClassName))
 - Bug /search
     Ctrl + L copy localhost:5173/search and open in new tab
 - TODO info (i) <- hover the icon for more info (e.g: click 2 times song to play it)
+

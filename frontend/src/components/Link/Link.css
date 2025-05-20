@@ -5,7 +5,8 @@
   border-radius: 5px;
   margin: 1em;
   margin-bottom: 1.5em;
-  width: 28vw;
+  width: 40vw;
+  max-width: 530px;
   cursor: pointer;
 }
 
@@ -13,9 +14,9 @@
   background: rgb(2, 0, 36);
   background: linear-gradient(
     30deg,
-    rgba(2, 0, 36, 1) 0%,
-    var(--bgColor) 45%,
-    rgba(18, 16, 29, 1) 89%
+    rgba(2,   0, 36, .73) 0%,
+    rgba(26, 26, 29, .73) 45%,
+    rgba(18, 16, 29, .73) 89%
   );
 }
 
@@ -23,15 +24,20 @@
   background: rgb(56, 32, 62);
   background: linear-gradient(
     30deg,
-    rgba(56, 32, 62, 1) 0%,
-    rgba(58, 58, 58, 1) 45%,
-    rgba(56, 32, 62, 1) 89%
+    rgba(46, 32, 62, .63) 0%,
+    rgba(58, 58, 58, .63) 45%,
+    rgba(56, 32, 62, .63) 89%
   );
 }
 
 .Link--track {
   background: rgb(0, 0, 0);
-  background: linear-gradient(30deg, #33333388 0%, #00000055 45%, #222222ee 89%);
+  background: linear-gradient(
+    30deg,
+    #33333353 0%,
+    #00000053 45%,
+    #22222253 89%
+  );
   font-size: 1em;
   padding: 1.4em 0;
   width: 100% !important;
@@ -81,6 +87,8 @@
 }
 
 .Link__Data {
+  width: 100%;
+  min-width: 0;
   text-align: left;
   color: var(--fgColor);
   margin-right: 2em;
@@ -88,6 +96,22 @@
 
 .Link__Data h4 {
   font-size: 1em;
+
+  /* max 2 lines of text before putting '...' */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 1;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+
+  max-height: calc(1.2em * 2);
+  max-width: 90%;
+}
+
+.Link__Data h5 {
+  color: var(--fgColor2);
 }
 
 .Link--track .Link__Data > * {
@@ -110,10 +134,6 @@ code {
 }
 
 @media only screen and (max-width: 1300px) {
-  .Link {
-    width: 40vw;
-  }
-
   .Link__PlayButton {
     margin-left: 1em;
   }
@@ -125,7 +145,7 @@ code {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 2vw;
+    margin: 1.7em auto;
   }
 
   .Link__Image {
@@ -142,8 +162,7 @@ code {
   }
 
   .Link--track {
-    margin-top: 1em;
-    margin-bottom: 0;
+    margin: 1em auto 0 auto;
   }
 
   .Link--track .Link__Image {
@@ -153,6 +172,21 @@ code {
   }
 
   .Link--track .Link__Data {
+    width: 70%;
+    min-width: 0;
     font-size: 1em;
+  }
+
+  .Link__Data h4 {
+    margin: 1.3em auto 0 auto;
+  }
+
+  .Link--track .Link__Data h4 {
+    /* limit to 1 line before '...' on small screens */
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
