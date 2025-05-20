@@ -4,7 +4,7 @@
     30deg,
     rgba(46, 32, 62, 1) 0%,
     rgba(37, 37, 37, 1) 45%,
-    rgba(56, 32, 82, 1) 89%
+    rgba(56, 32, 62, 1) 92%
   );
   box-shadow: 0 0 2em black;
   width: 100%;
@@ -17,6 +17,7 @@
 
 .Album__Data__ArtistLink {
   display: inline-flex;
+  color: var(--fgColor3);
 }
 
 .Album__Data__ArtistLink:hover {
