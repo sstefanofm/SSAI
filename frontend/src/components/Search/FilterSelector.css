@@ -42,3 +42,24 @@
 .FilterSelector:hover svg{
   animation-play-state: running;
 }
+
+@media only screen and (max-width: 750px) {
+  .FilterSelector {
+    width: 60px;
+    max-width: 60px;
+    min-width: 60px;
+    padding: 0;
+  }
+
+  .FilterSelector select {
+    text-shadow: 0 0 0 transparent;
+    color: transparent;
+    padding: 0;
+    text-align: right;
+  }
+
+  .FilterSelector svg {
+    padding: 0;
+    margin-right: 0px;
+  }
+}

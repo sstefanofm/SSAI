@@ -14,6 +14,9 @@ const getDropdownStyles = (searchType) => {
     right: rightPx || 30
   })
 
+  if (window.innerWidth < 750)
+    return get(85)
+
   switch (searchType) {
     case searchTypeOptions[0].value:
       return get(85)
