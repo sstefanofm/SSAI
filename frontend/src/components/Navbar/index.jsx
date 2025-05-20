@@ -27,7 +27,7 @@ const Navbar = () => {
       'mousedown',
       closeMenuIfClickOutside
     )
-  }, [hidden])
+  }, [])
 
   return (
     <div className='Navbar'>

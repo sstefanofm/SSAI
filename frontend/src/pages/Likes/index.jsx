@@ -22,7 +22,7 @@ const Likes = ({ Service, title = '' }) => {
     }
 
     fetchData()
-  }, [data])
+  }, [])
 
   return (
     <>

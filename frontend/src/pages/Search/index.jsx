@@ -19,7 +19,11 @@ const Search = () => {
   return (
     <div>
       <MainTitle>Search for {title} with &quot;{searchString}&quot;</MainTitle>
-      <List elements={state[elementType].items} />
+      <List
+        elements={state[elementType].items}
+        oneLine={elementType === 'tracks'}
+        isAlbumView={false}
+      />
     </div>
   )
 }

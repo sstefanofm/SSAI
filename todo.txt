@@ -4,14 +4,24 @@ z Goto artist onClick artist name in album search
 z GoTo artist onClick artist name in song search
 x Fix little bug onHover song search view
 x Close burger menu after clicking in other side if its open
-- Click on song to play it.
-  - click album cover -> goTo album if not on album already
-  - click artist name -> goTo artist if not on artist already
-  - 1click |> play song
-  - 2click [===] play song?
+/ Click on song to play it.
+  x click album cover -> goTo album if not on album already
+  x click artist name -> goTo artist if not on artist already
+  / 1click |> play song
+  / 2click [===] play song?
+
+x Click on |> of song to open tooltip to goTo song page
+x 2Click on [===] "" "" ""
+
+x Album page render all tracks
+
 - Instead of making various API requests to get album(s)/artist(s)/track(s),
     try to get them through props
-- Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
+
+x If album/artist/track name too long -> MyTrack Too Long...
+/ Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
+- Go to / onClick SSAI <h1>
+
 - Like artists, albums, songs. Save even if user exits
 - fix bug after token expires. Re-obtain token
 - / route
@@ -21,6 +31,7 @@ UI/UX improvements:
 x Go to / onClick SSAI <h1>
 x In search, show in "SEARCH" title, the search performed
     like -> SEARCH: 'abc'
+
 x Search icon search button
 x If album/artist/track name too long -> MyTrack Too Long...
 x Some text colors (like number of followers) darker
@@ -29,3 +40,10 @@ x Fix search filter selector position along with text
 x Fix width of main content albums&artists too narrow, too much dead space
 x Visual bug to links titles
 x cool font for important things
+
+- Show active route of burger menu (like a checkIcon) (*optional)
+  (replace Link wwith NavLink (*activeClassName))
+- Bug /search
+    Ctrl + L copy localhost:5173/search and open in new tab
+- TODO info (i) <- hover the icon for more info (e.g: click 2 times song to play it)
+

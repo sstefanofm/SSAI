@@ -1,22 +1,178 @@
 .Track {
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translate(-50%);
+  --trackHoverColor: #888;
+  --trackTransitionMain: 420ms;
+  --trackTransitionSecondary: 120ms;
+
+  cursor: pointer;
+  transition: var(--trackTransitionMain);
+
+  border: 1px solid var(--bgColor);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em auto;
+  margin-top: 0;
+  padding: .5em .3em;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    30deg,
+    #33333353 0%,
+    #00000053 45%,
+    #22222253 89%
+  );
+  box-shadow: 0px 0px 10px 0px #00000022;
+
+  border-radius: 5px;
+
+  width: 91%;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.Track__Player {
-  width: 60vw;
-  max-width: 40em;
-  min-width: 15em;
+.Track:hover {
+  border: 1px solid var(--trackHoverColor);
+  transition: var(--trackTransitionSecondary);
 }
 
-@media only screen and (max-width: 1200px) {
-  .Track {
-    bottom: 0;
-  }
+.Track:active {
+  box-shadow: 0px 0px 10px 0px #00000055;
+  border: 1px solid #fff;
+}
 
-  .Track__Player {
-    width: 80vw;
-  }
+.Track--NoAlbum {
+  margin-bottom: 2px;
+}
+
+.Track--NoAlbum:nth-child(1) {
+  border-top: 0 !important;
+}
+
+.Track--Disabled {
+  color: grey;
+  border: 1px solid var(--bgColor);
+  pointer-events: none;
+}
+
+.Track--Disabled .Track__Header__PlayPauseButton svg {
+  color: #555 !important;
+}
+
+.Track__Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.Track__Header__PlayPauseButton {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--fgColor);
+  margin: .6em;
+  cursor: pointer;
+}
+
+.Track__Header__PlayPauseButton svg {
+  color: var(--trackHoverColor);
+}
+.Track__Header__PlayPauseButton:hover,
+.Track__Header__PlayPauseButton:hover * * {
+  filter: drop-shadow(0 0 4px #ffffff22);
+  color: var(--fgColor);
+}
+
+.Track__Header__AlbumCover {
+  width: 64px;
+  height: 64px;
+  margin-left: 10px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px -1px #000;
+}
+.Track__Header__AlbumCover img {
+  border-radius: 2px;
+  width: 62px;
+  height: 62px;
+  border: 1px solid var(--bgColor);
+  transition: var(--trackTransitionMain);
+}
+.Track__Header__AlbumCover:hover img {
+  box-shadow: 0px 0px 10px 0px #000;
+  border: 1px solid var(--trackHoverColor);
+  transition: var(--trackTransitionSecondary);
+}
+
+.Track__Header__AlbumCover--Undefined {
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--trackHoverColor) !important;
+  text-wrap: wrap;
+  font-size: 15px;
+}
+.Track__Header__AlbumCover--Undefined img {
+  border: 1px solid transparent;
+  box-shadow: none !important;
+  outline: none;
+  background: transparent;
+  width: 0;
+  height: 0;
+}
+.Track__Header__AlbumCover--Undefined:hover img {
+  border: 1px solid transparent;
+}
+
+.Track__Body {
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  flex: 10;
+  overflow: hidden;
+}
+
+.Track__Body * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Track__Body--NoAlbum {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.Track__Body__Artists__Artist {
+  color: #6a6a6a;
+}
+
+.Track__Body__Artists__Artist:hover {
+  text-decoration: underline;
+}
+
+.Track__Body__Artists__Comma {
+  color: #6a6a6a;
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none !important;
+}
+.Track__Body__Artists__Comma::after {
+  content: "  ";
+  text-decoration: none !important;
+}
+
+.Track__Like {
+  /*flex: 2.5;*/
+}
+
+.Track__Duration {
+  color: var(--trackHoverColor);
+  font-size: 14px;
+  padding-right: 1em;
 }
