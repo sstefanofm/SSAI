@@ -39,7 +39,7 @@ const Artist = () => {
 
   return (
     artist && (
-      <div>
+      <div className='Artist'>
         <div className='Artist__Data'>
           <h2 className='Artist__Name'>{artist.name}</h2>
           <h5 className='Artist__Followers'>

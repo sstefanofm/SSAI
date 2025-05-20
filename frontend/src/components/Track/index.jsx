@@ -34,8 +34,8 @@ const Track = ({ trackElement, isFromAlbumView }) => {
     const y = event.pageY
 
     setTooltipPosition({
-      x: event.pageX + 15,
-      y: y < axisY ? y : y - 165,
+      x: event.pageX + 10,
+      y: y < axisY ? y : y - 110,
     })
     setTooltipOpen(true)
   }
