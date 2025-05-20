@@ -12,6 +12,9 @@
   --buttonHoverBorderColor: var(--ssaiColor);
   --navbarTopHeight: 33px;
   --navbarWidgetHeight: 58px;
+  --itemHoverBorderColor: #888;
+  --hoverTransitionMain: 420ms;
+  --hoverTransitionSecondary: 120ms;
 
   color-scheme: light dark;
   color: var(--fgColor);

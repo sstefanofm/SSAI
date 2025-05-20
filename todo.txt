@@ -47,3 +47,5 @@ x cool font for important things
     Ctrl + L copy localhost:5173/search and open in new tab
 - TODO info (i) <- hover the icon for more info (e.g: click 2 times song to play it)
 
+- on space search "my search string" is "my%20search%20string" <- fix
+- (optional) try rendering albums and artists colors by the color that most appears in the artist/album cover

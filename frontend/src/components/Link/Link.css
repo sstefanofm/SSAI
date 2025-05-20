@@ -8,26 +8,40 @@
   width: 40vw;
   max-width: 530px;
   cursor: pointer;
+  transition: var(--hoverTransitionMain);
+  border: 1px solid;
+}
+
+.Link:hover {
+  border: 1px solid var(--itemHoverBorderColor);
+  transition: var(--hoverTransitionSecondary);
 }
 
 .Link--artist {
+  --middleColor: rgba(26, 26, 29, .73);
+
   background: rgb(2, 0, 36);
   background: linear-gradient(
     30deg,
     rgba(2,   0, 36, .73) 0%,
-    rgba(26, 26, 29, .73) 45%,
+      var(--middleColor)    45%,
     rgba(18, 16, 29, .73) 89%
   );
+  border: 1px solid var(--middleColor);
 }
 
 .Link--album {
+  --middleColor: rgba(58, 58, 58, .63);
+
   background: rgb(56, 32, 62);
   background: linear-gradient(
     30deg,
     rgba(46, 32, 62, .63) 0%,
-    rgba(58, 58, 58, .63) 45%,
+    var(--middleColor)      45%,
     rgba(56, 32, 62, .63) 89%
   );
+
+  border: 1px solid var(--middleColor);
 }
 
 .Link--track {
@@ -45,12 +59,6 @@
   justify-content: start !important;
   margin-bottom: 0;
   min-height: 100px;
-}
-
-.Link--album:hover,
-.Link--artist:hover {
-  transition: 100ms;
-  scale: 1.02;
 }
 
 .Link--track .Link__Data {
