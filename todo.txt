@@ -20,7 +20,7 @@ x Album page render all tracks
 
 x If album/artist/track name too long -> MyTrack Too Long...
 / Fix bug onPlay song. (replicate trying to play many songs, or try to play a song after the current has finished)
-- Go to / onClick SSAI <h1>
+x Go to / onClick SSAI <h1>
 
 - Like artists, albums, songs. Save even if user exits
 - fix bug after token expires. Re-obtain token
@@ -49,3 +49,7 @@ x cool font for important things
 
 - on space search "my search string" is "my%20search%20string" <- fix
 - (optional) try rendering albums and artists colors by the color that most appears in the artist/album cover
+
+- on page search, add navigation between pages page 1, 2, 3, ...
+
+- use other explicit 'E' icon
