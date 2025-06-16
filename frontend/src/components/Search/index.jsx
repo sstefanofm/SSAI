@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import './Search.css'
 import FilterSelector, { searchTypeOptions } from './FilterSelector'
 import { IconSearch } from '../Icon'
-import { TokenContext } from '../../context/TokenProvider'
 
 const Search = () => {
   const [searchString, setSearchString] = useState('')
