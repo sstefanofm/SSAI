@@ -13,14 +13,15 @@ const Search = () => {
   const [searchParams] = useSearchParams()
 
   const searchString = searchParams.get('q')?.trim() || ''
+  const currentPage = +searchParams.get('p') || 1
 
   useEffect(() => {
     if (searchString && searchType)
-      SearchService.run(token, searchString, searchType)
+      SearchService.run(token, searchString, searchType, currentPage)
         .then(result =>
           setSearchedElements(result[searchType + 's'])
         )
-  }, [searchString, searchType])
+  }, [searchString, searchType, currentPage])
 
   if (searchString && searchType)
     return (
@@ -31,6 +32,11 @@ const Search = () => {
           oneLine={searchType === 'track'}
           isAlbumView={false}
         />
+        <div>
+          <button>&lt;</button>
+          <button>{currentPage}</button>
+          <button>&gt;</button>
+        </div>
       </div>
     )
   return <MainTitle>Looking for something?</MainTitle>
