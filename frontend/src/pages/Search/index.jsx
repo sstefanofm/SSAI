@@ -11,12 +11,17 @@ const scrollTop = () => window.scrollTo({
   behavior: 'smooth'
 })
 
+const savePageNumber = (pageNumber) =>
+  localStorage.setItem('previousPageNumber', pageNumber)
+
 const Search = () => {
   const [searchedElements, setSearchedElements] = useState({})
   const searchType = useLocation().state
   const token = useContext(TokenContext)
   const [searchParams] = useSearchParams()
-  const [page, setPage] = useState(+searchParams.get('p') || 1)
+  const [page, setPage] = useState(() =>
+    +localStorage.getItem('previousPageNumber') || 1
+  )
 
   const searchString = searchParams.get('q')?.trim() || ''
 
@@ -41,6 +46,7 @@ const Search = () => {
           {page > 1 ?
             <button onClick={() => {
               setPage(page - 1)
+              savePageNumber(page - 1)
               scrollTop()
             }}>&lt;</button>
             : <></>
@@ -48,6 +54,7 @@ const Search = () => {
           <button>{page}</button>
           <button onClick={() => {
             setPage(page + 1)
+            savePageNumber(page + 1)
             scrollTop()
           }}>&gt;</button>
         </div>
