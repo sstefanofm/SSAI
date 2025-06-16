@@ -15,22 +15,25 @@ const Search = () => {
   const searchString = searchParams.get('q')?.trim() || ''
 
   useEffect(() => {
-    SearchService.run(token, searchString, searchType)
-      .then(result =>
-        setSearchedElements(result[searchType + 's'])
-      )
+    if (searchString && searchType)
+      SearchService.run(token, searchString, searchType)
+        .then(result =>
+          setSearchedElements(result[searchType + 's'])
+        )
   }, [searchString, searchType])
 
-  return (
-    <div>
-      <MainTitle>Search for {searchType}s with &quot;{searchString}&quot;</MainTitle>
-      <List
-        elements={searchedElements?.items}
-        oneLine={searchType === 'track'}
-        isAlbumView={false}
-      />
-    </div>
-  )
+  if (searchString && searchType)
+    return (
+      <div>
+        <MainTitle>Search for {searchType}s with &quot;{searchString}&quot;</MainTitle>
+        <List
+          elements={searchedElements?.items}
+          oneLine={searchType === 'track'}
+          isAlbumView={false}
+        />
+      </div>
+    )
+  return <MainTitle>Looking for something?</MainTitle>
 }
 
 export default Search
