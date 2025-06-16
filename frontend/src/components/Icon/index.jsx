@@ -1,4 +1,5 @@
 import Burger from './Burger'
+import CaretRight from './CaretRight'
 import Cover from './Cover'
 import Explicit from './Explicit'
 import LifePreserver from './LifePreserver'
@@ -9,6 +10,7 @@ import Play from './Play'
 import Search from './Search'
 
 export const IconBurger = ({ size = 30 }) => <Burger size={size} />
+export const IconCaretRight = ({ size = 16, style = {} }) => <CaretRight size={size} style={style} />
 export const IconCover = ({ size = 200 }) => <Cover size={size} />
 export const IconExplicit = ({ size = 16 }) => <Explicit size={size} />
 export const IconLifePreserver = ({ size = 15, style = {} }) => <LifePreserver size={size} style={style} />

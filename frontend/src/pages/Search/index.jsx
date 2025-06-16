@@ -1,10 +1,12 @@
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 
+import './Search.css'
 import List from '../../components/List'
 import MainTitle from '../../components/MainTitle'
 import { TokenContext } from '../../context/TokenProvider'
 import SearchService from '../../services/SearchService'
+import { IconCaretRight } from '../../components/Icon'
 
 const scrollTop = () => window.scrollTo({
   top: 0,
@@ -42,21 +44,33 @@ const Search = () => {
           oneLine={searchType === 'track'}
           isAlbumView={false}
         />
-        <div>
+        <div className='Search__NavigationButtons'>
           {page > 1 ?
-            <button onClick={() => {
-              setPage(page - 1)
-              savePageNumber(page - 1)
-              scrollTop()
-            }}>&lt;</button>
+            <button
+              className='Search__NavigationButtons__Button'
+              onClick={() => {
+                setPage(page - 1)
+                savePageNumber(page - 1)
+                scrollTop()
+              }}
+            >
+              <IconCaretRight style={{
+                transform: 'rotate(180deg)'
+              }} />
+            </button>
             : <></>
           }
-          <button>{page}</button>
-          <button onClick={() => {
-            setPage(page + 1)
-            savePageNumber(page + 1)
-            scrollTop()
-          }}>&gt;</button>
+          <div className='Search__NavigationButtons__CurrentPage'>{page}</div>
+          <button
+            className='Search__NavigationButtons__Button'
+            onClick={() => {
+              setPage(page + 1)
+              savePageNumber(page + 1)
+              scrollTop()
+            }}
+          >
+            <IconCaretRight />
+          </button>
         </div>
       </div>
     )
