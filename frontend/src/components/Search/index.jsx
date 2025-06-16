@@ -12,7 +12,7 @@ const Search = () => {
   const [searchPlaceholder, setSearchPlaceholder] = useState('Search for...')
   const navigate = useNavigate()
 
-  const performSearch = () =>
+  const performSearch = () => searchString.trim() &&
     navigate(
       '/search?q=' + searchString.trim(),
       { state: searchType }
