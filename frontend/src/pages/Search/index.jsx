@@ -6,6 +6,11 @@ import MainTitle from '../../components/MainTitle'
 import { TokenContext } from '../../context/TokenProvider'
 import SearchService from '../../services/SearchService'
 
+const scrollTop = () => window.scrollTo({
+  top: 0,
+  behavior: 'smooth'
+})
+
 const Search = () => {
   const [searchedElements, setSearchedElements] = useState({})
   const searchType = useLocation().state
@@ -34,11 +39,17 @@ const Search = () => {
         />
         <div>
           {page > 1 ?
-            <button onClick={() => setPage(page - 1)}>&lt;</button>
+            <button onClick={() => {
+              setPage(page - 1)
+              scrollTop()
+            }}>&lt;</button>
             : <></>
           }
           <button>{page}</button>
-          <button onClick={() => setPage(page + 1)}>&gt;</button>
+          <button onClick={() => {
+            setPage(page + 1)
+            scrollTop()
+          }}>&gt;</button>
         </div>
       </div>
     )
