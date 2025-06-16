@@ -1,27 +1,32 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
 
 import List from '../../components/List'
 import MainTitle from '../../components/MainTitle'
-import { capitalize } from '../../util/capitalize'
-import { getUrlQueryParamValue } from '../../util/getUrlQueryParamValue'
+import { TokenContext } from '../../context/TokenProvider'
+import SearchService from '../../services/SearchService'
 
 const Search = () => {
-  const { state } = useLocation()
+  const [searchedElements, setSearchedElements] = useState({})
+  const searchType = useLocation().state
+  const token = useContext(TokenContext)
+  const [searchParams] = useSearchParams()
 
-  const elementType = Object.keys(state)[0]
+  const searchString = searchParams.get('q')?.trim() || ''
 
-  let title = Object.keys(state)[0]
-  let searchString = getUrlQueryParamValue(
-    state[title].href,
-    'query'
-  )
+  useEffect(() => {
+    SearchService.run(token, searchString, searchType)
+      .then(result =>
+        setSearchedElements(result[searchType + 's'])
+      )
+  }, [searchString, searchType])
 
   return (
     <div>
-      <MainTitle>Search for {title} with &quot;{searchString}&quot;</MainTitle>
+      <MainTitle>Search for {searchType}s with &quot;{searchString}&quot;</MainTitle>
       <List
-        elements={state[elementType].items}
-        oneLine={elementType === 'tracks'}
+        elements={searchedElements?.items}
+        oneLine={searchType === 'track'}
         isAlbumView={false}
       />
     </div>

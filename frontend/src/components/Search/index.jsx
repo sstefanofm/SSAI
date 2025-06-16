@@ -5,21 +5,18 @@ import './Search.css'
 import FilterSelector, { searchTypeOptions } from './FilterSelector'
 import { IconSearch } from '../Icon'
 import { TokenContext } from '../../context/TokenProvider'
-import SearchService from '../../services/SearchService'
 
 const Search = () => {
-  const token = useContext(TokenContext)
   const [searchString, setSearchString] = useState('')
   const [searchType, setSearchType] = useState(searchTypeOptions[0].value)
   const [searchPlaceholder, setSearchPlaceholder] = useState('Search for...')
   const navigate = useNavigate()
 
   const performSearch = () =>
-    SearchService.run(token, searchString, searchType)
-      .then(result => {
-        navigate('/search', { state: result })
-      })
-      .catch(console.warn)
+    navigate(
+      '/search?q=' + searchString.trim(),
+      { state: searchType }
+    )
 
   useEffect(() => {
     const article = searchType === searchTypeOptions[2].value ? 'a' : 'an'
