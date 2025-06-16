@@ -11,17 +11,17 @@ const Search = () => {
   const searchType = useLocation().state
   const token = useContext(TokenContext)
   const [searchParams] = useSearchParams()
+  const [page, setPage] = useState(+searchParams.get('p') || 1)
 
   const searchString = searchParams.get('q')?.trim() || ''
-  const currentPage = +searchParams.get('p') || 1
 
   useEffect(() => {
     if (searchString && searchType)
-      SearchService.run(token, searchString, searchType, currentPage)
+      SearchService.run(token, searchString, searchType, page)
         .then(result =>
           setSearchedElements(result[searchType + 's'])
         )
-  }, [searchString, searchType, currentPage])
+  }, [searchString, searchType, page])
 
   if (searchString && searchType)
     return (
@@ -33,9 +33,12 @@ const Search = () => {
           isAlbumView={false}
         />
         <div>
-          <button>&lt;</button>
-          <button>{currentPage}</button>
-          <button>&gt;</button>
+          {page > 1 ?
+            <button onClick={() => setPage(page - 1)}>&lt;</button>
+            : <></>
+          }
+          <button>{page}</button>
+          <button onClick={() => setPage(page + 1)}>&gt;</button>
         </div>
       </div>
     )
