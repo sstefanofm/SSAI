@@ -28,6 +28,13 @@ const Search = () => {
   const searchString = searchParams.get('q')?.trim() || ''
 
   useEffect(() => {
+    const pageNumber = localStorage.getItem('previousPageNumber')
+
+    if (!pageNumber) {
+      setPage(1)
+      savePageNumber(1)
+    }
+
     if (searchString && searchType)
       SearchService.run(token, searchString, searchType, page)
         .then(result =>

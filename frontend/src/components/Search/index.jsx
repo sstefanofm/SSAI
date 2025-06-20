@@ -11,11 +11,16 @@ const Search = () => {
   const [searchPlaceholder, setSearchPlaceholder] = useState('Search for...')
   const navigate = useNavigate()
 
-  const performSearch = () => searchString.trim() &&
+  const performSearch = () => {
+    if (!searchString.trim())
+      return
+
+    localStorage.removeItem('previousPageNumber')
     navigate(
       '/search?q=' + searchString.trim(),
       { state: searchType }
     )
+  }
 
   useEffect(() => {
     const article = searchType === searchTypeOptions[2].value ? 'a' : 'an'
