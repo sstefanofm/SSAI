@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Track.css'
@@ -11,6 +11,7 @@ const Track = ({ trackElement, isFromAlbumView }) => {
   const { setCurrentTrack } = useTrack()
   const [tooltipOpen, setTooltipOpen] = useState(false)
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
+  const [playDisplay, setPlayDisplay] = useState('block')
   const playButtonRef = useRef(null)
 
   const coverUrl = trackElement.album?.images?.[2]?.url
@@ -44,6 +45,24 @@ const Track = ({ trackElement, isFromAlbumView }) => {
     setTooltipOpen(false)
   }
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 570px)')
+
+    const handleScreenWidthChange = (e) => {
+      if (e.matches)
+        setPlayDisplay('none')
+      else
+        setPlayDisplay('block')
+    }
+
+    mediaQuery.addEventListener('change', handleScreenWidthChange)
+    handleScreenWidthChange(mediaQuery)
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleScreenWidthChange)
+    }
+  }, [])
+
   return trackElement && (
     <div
       className={`Track ${!playable ? 'Track--Disabled' : ''} ${trackElement.album ? '' : 'Track--NoAlbum'}`}
@@ -53,6 +72,7 @@ const Track = ({ trackElement, isFromAlbumView }) => {
         <div
           className='Track__Header__PlayPauseButton'
           onClick={openTrackTooltip}
+          style={{ display: playDisplay }}
           ref={playButtonRef}
         >
         {
