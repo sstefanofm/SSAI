@@ -6,6 +6,7 @@ import TrackTooltip from './TrackTooltip'
 import { IconExplicit, IconPause, IconPlay } from '../Icon'
 import { numberToMinSec } from '../../util/numberParser'
 import { useTrack } from '../../context/TrackProvider'
+import LikeButton from '../LikeButton'
 
 const Track = ({ trackElement, isFromAlbumView }) => {
   const { setCurrentTrack } = useTrack()
@@ -20,7 +21,7 @@ const Track = ({ trackElement, isFromAlbumView }) => {
   const playSong = (ev) => {
     if (!playable) {
       ev.preventDefault()
-      return
+      rreturn
     }
     setCurrentTrack(trackElement.id)
   }
@@ -140,6 +141,8 @@ const Track = ({ trackElement, isFromAlbumView }) => {
       <div className='Track__Duration'>
         { numberToMinSec(trackElement.duration_ms) }
       </div>
+
+      <LikeButton />
 
       {/* Track tooltip */}
       <TrackTooltip
