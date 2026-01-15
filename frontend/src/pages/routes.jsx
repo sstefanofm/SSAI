@@ -10,6 +10,10 @@ import TrackService from '../services/TrackService'
 
 export const routes = [
   {
+    path: '/',
+    element: <Likes Service={undefined} title='Hello, this is the Home' />
+  },
+  {
     path: '/artists',
     element: <Likes Service={ArtistService} title='Artists' />,
   },

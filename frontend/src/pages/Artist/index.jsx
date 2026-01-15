@@ -35,25 +35,25 @@ const Artist = () => {
     fetchArtist()
     getTopTracks()
     getAlbums()
-  }, [])
+  }, [id])
 
   return (
     artist && (
-      <div>
+      <div className='Artist'>
         <div className='Artist__Data'>
           <h2 className='Artist__Name'>{artist.name}</h2>
-          <p>
-            <i>{numberParserLf(artist.followers.total)} followers</i>
-          </p>
+          <h5 className='Artist__Followers'>
+            {numberParserLf(artist.followers.total)} followers
+          </h5>
           <img
             className='Artist__Image'
             src={artist.images[1].url}
             alt={`${artist.name} profile picture`}
           />
         </div>
-        <h3>Top songs</h3>
+        {topTracks.length ? <h3>Top songs</h3> : <></>}
         <List elements={topTracks} />
-        <h3>Albums</h3>
+        {albums.length ? <h3>Albums</h3> : <></>}
         <List elements={albums} />
       </div>
     )

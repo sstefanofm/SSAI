@@ -1,20 +1,157 @@
-import { useContext } from 'react'
-import ReactAudioPlayer from 'react-audio-player'
+import { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Track.css'
-import { TrackContext } from '../../context/TrackContext'
+import TrackTooltip from './TrackTooltip'
+import { IconExplicit, IconPause, IconPlay } from '../Icon'
+import { numberToMinSec } from '../../util/numberParser'
+import { useTrack } from '../../context/TrackProvider'
+import LikeButton from '../LikeButton'
 
-const Track = () => {
-  const { track } = useContext(TrackContext)
+const Track = ({ trackElement, isFromAlbumView }) => {
+  const { setCurrentTrack } = useTrack()
+  const [tooltipOpen, setTooltipOpen] = useState(false)
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
+  const [playDisplay, setPlayDisplay] = useState('block')
+  const playButtonRef = useRef(null)
 
-  return (
-    <div className='Track'>
-      <ReactAudioPlayer
-        className='Track__Player'
-        src={track.preview_url}
-        autoPlay={true}
-        controls={true}
-      />
+  const coverUrl = trackElement.album?.images?.[2]?.url
+  const playable = trackElement.is_playable || isFromAlbumView
+
+  const playSong = (ev) => {
+    if (!playable) {
+      ev.preventDefault()
+      rreturn
+    }
+    setCurrentTrack(trackElement.id)
+  }
+
+  const openTrackTooltip = (event) => {
+    if (!playable) {
+      ev.preventDefault()
+      return
+    }
+
+    const axisY = window.scrollY + window.innerHeight / 2
+    const y = event.pageY
+
+    setTooltipPosition({
+      x: event.pageX + 10,
+      y: y < axisY ? y : y - 110,
+    })
+    setTooltipOpen(true)
+  }
+
+  const closeTooltip = () => {
+    setTooltipOpen(false)
+  }
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 570px)')
+
+    const handleScreenWidthChange = (e) => {
+      if (e.matches)
+        setPlayDisplay('none')
+      else
+        setPlayDisplay('block')
+    }
+
+    mediaQuery.addEventListener('change', handleScreenWidthChange)
+    handleScreenWidthChange(mediaQuery)
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleScreenWidthChange)
+    }
+  }, [])
+
+  return trackElement && (
+    <div
+      className={`Track ${!playable ? 'Track--Disabled' : ''} ${trackElement.album ? '' : 'Track--NoAlbum'}`}
+      onDoubleClick={openTrackTooltip}
+    >
+      <div className='Track__Header'>
+        <div
+          className='Track__Header__PlayPauseButton'
+          onClick={openTrackTooltip}
+          style={{ display: playDisplay }}
+          ref={playButtonRef}
+        >
+        {
+          false /* TODO */ ?
+          <IconPause size={32} /> :
+          <IconPlay size={32} />
+        }
+        </div>
+
+        {trackElement.album && (
+          <Link
+            className={`Track__Header__AlbumCover ${!coverUrl ? 'Track__Header__AlbumCover--Undefined' : ''}`}
+            to={`/albums/${trackElement.album.id}`}
+          >
+            <img src={coverUrl} />
+            {!coverUrl && 'no cover :('}
+          </Link>
+        )}
+      </div>
+
+      <div className={`Track__Body ${trackElement.album ? '' : 'Track__Body--NoAlbum'}`}>
+        <div>
+          {/* TODO use --importantFont ref/ui-ux */trackElement.explicit && (<><IconExplicit size={11} />&nbsp;</>)}
+          {trackElement.name}
+        </div>
+
+        <div className='Track__Body__Artists'>
+        { /* comma-separated artists list */
+
+        trackElement.artists.map((artist, i) =>
+          <span key={artist.id}>
+
+            {/* if current artist webpage is artist */
+            window.location.pathname.split('/').pop() === artist.id ?
+              (<span className='Track__Body__Artists__Artist'>
+                {artist.name}
+              </span>)
+              /* show only name, not link */
+              :
+              (<Link
+                className='Track__Body__Artists__Artist'
+                to={`/artists/${artist.id}`}
+              >
+                {artist.name}
+              </Link>)
+            }
+
+            {i !== trackElement.artists.length - 1 &&
+              <span
+                className='Track__Body__Artists__Comma'
+                onClick={e => e.preventDefault()}
+              >,</span>
+            }
+
+          </span>
+        )
+
+        }
+        </div>
+
+      </div>
+
+      <div className='Track__Like'>{/* TODO */}</div>
+
+      <div className='Track__Duration'>
+        { numberToMinSec(trackElement.duration_ms) }
+      </div>
+
+      <LikeButton />
+
+      {/* Track tooltip */}
+      <TrackTooltip
+        isOpen={tooltipOpen}
+        position={tooltipPosition}
+        close={closeTooltip}
+        track={trackElement}
+      >
+      </TrackTooltip>
     </div>
   )
 }

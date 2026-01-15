@@ -1,15 +1,24 @@
 import './List.css'
 import Link from '../Link'
-import TrackLink from '../Link/TrackLink'
+import Track from '../Track'
+/* deprecated TrackLink */
+// import TrackLink from '../Link/TrackLink'
 
-const List = ({ elements = [] }) => {
+const List = ({ elements = [], oneLine = false, isAlbumView = false }) => {
   return (
-    <div className='List'>
+    <div className={`List List--${oneLine ? 'OneLine' : 'Columns'}`}>
       {elements.map(e =>
         e.type === 'track' ? (
-          <TrackLink key={e.id} trackElement={e} />
+          <Track
+            key={e.id}
+            trackElement={e}
+            isFromAlbumView={isAlbumView}
+          />
         ) : (
-          <Link key={e.id} element={e} />
+          <Link
+            key={e.id}
+            element={e}
+          />
         ),
       )}
     </div>
